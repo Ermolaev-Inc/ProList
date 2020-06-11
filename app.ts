@@ -1,7 +1,8 @@
 import express from "express";
+import config from "config";
 
 const app = express();
-const PORT = 5000;
+const PORT = config.get("port");
 
 app.get("/", (req, res) => {
   res.send("Hello from ProList 📝");
