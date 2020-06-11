@@ -5,6 +5,7 @@
 
 DS_Store
 *.js
+config
 
 # User-specific files
 *.rsuser
