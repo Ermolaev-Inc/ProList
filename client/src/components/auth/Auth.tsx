@@ -2,7 +2,7 @@ import React from "react";
 
 export const Auth = () => {
   return(
-    <div className="">
+    <div>
       This is Auth Page
     </div>
   )
