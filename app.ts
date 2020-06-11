@@ -3,20 +3,20 @@ import config from "config";
 import mongoose from "mongoose";
 
 const app = express();
-const PORT = config.get("port");
+const PORT: number = config.get("port");
 
-app.get("/", (req, res) => {
+app.get("/", (req, res): void => {
   res.send("Hello from ProList 📝");
 })
 
-async function start() {
+async function start(): Promise<void> {
   try {
     await mongoose.connect(config.get("mongoUri"), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
-    app.listen(PORT, () => {
+    app.listen(PORT, (): void => {
       console.log(`Server started on port ${PORT}`);
     })
   } catch (error) {
