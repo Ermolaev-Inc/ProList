@@ -9,7 +9,7 @@ export const Auth = () => {
     setLogin(event.target.value);
   }
   const passwordHandler = (event: any) => {
-    setPassword(event.targer.value);
+    setPassword(event.target.value);
   }
   return(
     <div className={classes.window}>
