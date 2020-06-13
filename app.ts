@@ -5,9 +5,7 @@ import mongoose from "mongoose";
 const app = express();
 const PORT: number = config.get("port");
 
-app.get("/", (req, res): void => {
-  res.send("Hello from ProList 📝");
-})
+app.use("/api/auth", require("./routes/auth.routes"));
 
 async function start(): Promise<void> {
   try {
