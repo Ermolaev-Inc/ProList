@@ -23,7 +23,7 @@ export const Auth = () => {
     <div className={classes.window}>
       <img src={logo} alt="Please wait" className={classes.logo}/>
       <input type="text" placeholder="Username" name="login" onChange={loginHandler} className={classes.login}/>
-      <input type="text" placeholder="Password" name="password" onChange={passwordHandler} className={classes.password}/>
+      <input type="password" placeholder="Password" name="password" onChange={passwordHandler} className={classes.password}/>
       <div className={classes.buttons}>
         <button className={classes.signup_btn} onClick={register}>Sign up</button>
         <button className={classes.login_btn}>Login</button>
