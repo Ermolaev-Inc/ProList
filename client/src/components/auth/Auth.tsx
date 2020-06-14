@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHttp } from "../../hooks/auth.hook";
+import { useRegister } from "../../hooks/register.hook";
 import classes from "./styles/Auth.module.css";
 import logo from "./img/logo.svg";
 
@@ -12,7 +12,7 @@ export const Auth = () => {
   const passwordHandler = (event: any) => {
     setPassword(event.target.value);
   }
-  const request = useHttp();
+  const request = useRegister();
   const register = async () => {
     console.log("Kek")
     console.log(login)

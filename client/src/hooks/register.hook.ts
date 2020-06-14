@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-export const useHttp = () => {
+export const useRegister = () => {
   const request = useCallback(async (url = "/api/auth/register", method = "GET", body = null, headers = {}) => {
     body = JSON.stringify(body);
     headers["Content-Type"] = "application/json";
