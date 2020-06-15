@@ -38,7 +38,7 @@ button {
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
-  border-color: #C4C4C4;
+  border-color: red;
   border-right-width: 0px;
   border-top-width: 0px;
   border-left-width: 0px;
@@ -58,7 +58,7 @@ button {
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
-  border-color: #C4C4C4;
+  border-color: red;
   border-right-width: 0px;
   border-top-width: 0px;
   border-left-width: 0px;

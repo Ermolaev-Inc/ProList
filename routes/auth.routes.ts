@@ -29,10 +29,10 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({ login, password: hashedPassword });
       await user.save();
-      res.status(201).json({ message: "The user is created" })
+      res.status(201).json({ message: "The user is created", successfully: true })
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Try again :(" });
+      res.status(500).json({ message: "Try again :(", successfully: false });
     }
   }
 )
@@ -65,9 +65,9 @@ router.post(
         config.get("jwtSecret"),
         { expiresIn: "1h" }
       )
-      res.json({ token, userId: user.id })
+      res.json({ token, userId: user.id, successfully: true })
     } catch (error) {
-      res.status(500).json({ message: "Try again :(" });
+      res.status(500).json({ message: "Try again :(", successfully: false });
     }
   }
 )
