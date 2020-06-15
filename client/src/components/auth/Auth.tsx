@@ -7,8 +7,12 @@ import { AuthContext } from "../../context/AuthContext";
 import { IDataLogin, IDataRegister } from "../../interfaces";
 
 export const Auth = () => {
+  let [darkMode, setDarkMode] = useState(false);
   let [notificationStyles, setNotificationStyles] = useState(classes.failed);
   let [notificationText, setNotificationText] = useState("");
+  const changeThemeMode = () => {
+    setDarkMode(!darkMode);
+  }
   const checkSuccessAuth = (successfully: boolean) => {
     if (!successfully) {
       notifyUserAboutFailed(true);
@@ -52,7 +56,8 @@ export const Auth = () => {
     }
   }
   return(
-    <div className={classes.window}>
+    <div className={darkMode ? classes.window_dark : classes.window}>
+      <button onClick={changeThemeMode}>Change Mode</button>
       <img src={logo} alt="Please wait" className={classes.logo}/>
       <input type="text" placeholder="Username" name="login" onChange={loginInputHandler} className={classes.login}/>
       <input type="password" placeholder="Password" name="password" onChange={passwordInputHandler} className={classes.password}/>

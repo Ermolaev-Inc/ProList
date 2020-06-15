@@ -34,6 +34,7 @@ button {
 }
 
 .window .login {
+  color: black;
   margin-top: 80px;
   width: 40%;
   height: 35px;
@@ -54,6 +55,7 @@ button {
 }
 
 .window .password {
+  color: black;
   margin-top: 40px;
   width: 40%;
   height: 35px;
@@ -113,5 +115,107 @@ button {
 }
 
 .window .notify_form {
+  margin-top: 100px;
+}
+
+.window_dark {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  background: #000000;
+}
+
+.window_dark .logo {
+  margin-top: 40px;
+}
+
+.window_dark .login {
+  color: white;
+  margin-top: 80px;
+  border-color: #3E3E3E !important;
+  background-color: #000000;
+  width: 40%;
+  height: 35px;
+  border-bottom-width: 1px;
+  border-color: #C4C4C4;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 42px;
+}
+
+.window_dark .login:focus {
+  border-color: #FF6565 !important;
+}
+
+.window_dark .password {
+  color: white;
+  margin-top: 40px;
+  border-color: #3E3E3E !important;
+  background-color: #000000;
+  width: 40%;
+  height: 35px;
+  border-bottom-width: 1px;
+  border-color: #C4C4C4;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 42px;
+}
+
+.window_dark .password:focus {
+  border-color: #79C7FF !important;
+}
+
+.window_dark .buttons .signup_btn {
+  background: #3E3E3E;
+  margin-right: 15px;
+  margin-top: 80px;
+  width: 107px;
+  height: 51px;
+  border: 0;
+  border-radius: 15px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+}
+
+.window_dark .buttons .signup_btn:hover {
+  box-shadow: 0px 0px 8px #3E3E3E;
+}
+
+.window_dark .buttons .login_btn {
+  background: #FF6565;
+  margin-top: 80px;
+  width: 107px;
+  height: 51px;
+  border: 0;
+  border-radius: 15px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+}
+
+.window_dark .buttons .login_btn:hover {
+  box-shadow: 0px 0px 8px #FF6565;
+}
+
+.window_dark .notify_form {
   margin-top: 100px;
 }
