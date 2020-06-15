@@ -41,6 +41,10 @@ button {
   line-height: 42px;
 }
 
+.window .login:focus {
+  border-color: #FF6565;
+}
+
 .window .password {
   margin-top: 40px;
   width: 40%;
@@ -55,6 +59,10 @@ button {
   font-weight: 300;
   font-size: 32px;
   line-height: 42px;
+}
+
+.window .password:focus {
+  border-color: #79C7FF;
 }
 
 .window .buttons .signup_btn {
