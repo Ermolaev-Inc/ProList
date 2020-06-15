@@ -26,11 +26,10 @@ router.post(
       if (candidate) {
         return res.status(400).json({ message: "This username is already registered" });
       }
-      console.log("lol")
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({ login, password: hashedPassword });
       await user.save();
-      res.status(201).json({ message: "The user is created" });
+      res.status(201).json({ message: "The user is created" })
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Try again :(" });

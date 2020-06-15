@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { useRegister } from "../../hooks/register.hook";
+import React, { useState, useContext } from "react";
+import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/Auth.module.css";
 import logo from "./img/logo.svg";
 import { login, password } from "../../types";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Auth = () => {
+  const auth = useContext(AuthContext);
   const [login, setLogin]: [login, Function] = useState();
   const [password, setPassword]: [password, Function] = useState();
   const loginInputHandler = (event: any) => {
@@ -13,7 +15,7 @@ export const Auth = () => {
   const passwordInputHandler = (event: any) => {
     setPassword(event.target.value);
   }
-  const request: Function = useRegister();
+  const request: Function = useHttp();
   const registerHandler = async () => {
     try {
       const data: Promise<Object> = await request("/api/auth/register", "POST", {login, password});  
@@ -21,8 +23,14 @@ export const Auth = () => {
       console.log("Error:", error);
     }
   }
-  const loginHandler = () => {
-    //TODD
+  const loginHandler = async () => {
+    try {
+      const data: any = await request("/api/auth/login", "POST", {login, password});
+      auth.login(data.token, data.userId);
+      console.log("YEs")
+    } catch (error) {
+      
+    }
   }
   return(
     <div className={classes.window}>
