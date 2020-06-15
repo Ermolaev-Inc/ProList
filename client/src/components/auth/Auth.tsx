@@ -27,9 +27,8 @@ export const Auth = () => {
     try {
       const data: any = await request("/api/auth/login", "POST", {login, password});
       auth.login(data.token, data.userId);
-      console.log("YEs")
     } catch (error) {
-      
+      console.log("Error", error);
     }
   }
   return(
