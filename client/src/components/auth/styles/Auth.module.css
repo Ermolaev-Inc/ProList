@@ -29,13 +29,22 @@ button {
   background: #ffffff;
 }
 
+.window .changeThemeModeBtn {
+  border-radius: 100%;
+  width: 31px;
+  height: 31px;
+  background: #000000;
+}
+
+.window .changeThemeModeBtn:hover {
+  box-shadow: 0px 0px 4px #3F3F3F;
+}
+
 .window .logo {
   margin-top: 40px;
 }
 
 .window .login {
-  color: black;
-  margin-top: 80px;
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
@@ -48,6 +57,8 @@ button {
   font-weight: 300;
   font-size: 32px;
   line-height: 42px;
+  color: black;
+  margin-top: 80px;
 }
 
 .window .login:focus {
@@ -55,8 +66,6 @@ button {
 }
 
 .window .password {
-  color: black;
-  margin-top: 40px;
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
@@ -69,6 +78,8 @@ button {
   font-weight: 300;
   font-size: 32px;
   line-height: 42px;
+  color: black;
+  margin-top: 40px;
 }
 
 .window .password:focus {
@@ -127,15 +138,22 @@ button {
   background: #000000;
 }
 
+.window_dark .changeThemeModeBtn {
+  border-radius: 100%;
+  width: 31px;
+  height: 31px;
+  background: #F1F372;
+}
+
+.window_dark .changeThemeModeBtn:hover {
+  box-shadow: 0px 0px 4px #F1F372;
+}
+
 .window_dark .logo {
   margin-top: 40px;
 }
 
 .window_dark .login {
-  color: white;
-  margin-top: 80px;
-  border-color: #3E3E3E !important;
-  background-color: #000000;
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
@@ -148,6 +166,10 @@ button {
   font-weight: 300;
   font-size: 32px;
   line-height: 42px;
+  color: white;
+  margin-top: 80px;
+  border-color: #3E3E3E !important;
+  background-color: #000000;
 }
 
 .window_dark .login:focus {
@@ -155,10 +177,6 @@ button {
 }
 
 .window_dark .password {
-  color: white;
-  margin-top: 40px;
-  border-color: #3E3E3E !important;
-  background-color: #000000;
   width: 40%;
   height: 35px;
   border-bottom-width: 1px;
@@ -171,6 +189,10 @@ button {
   font-weight: 300;
   font-size: 32px;
   line-height: 42px;
+  color: white;
+  margin-top: 40px;
+  border-color: #3E3E3E !important;
+  background-color: #000000;
 }
 
 .window_dark .password:focus {
@@ -178,8 +200,6 @@ button {
 }
 
 .window_dark .buttons .signup_btn {
-  background: #3E3E3E;
-  margin-right: 15px;
   margin-top: 80px;
   width: 107px;
   height: 51px;
@@ -191,6 +211,8 @@ button {
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
+  background: #3E3E3E;
+  margin-right: 15px;
 }
 
 .window_dark .buttons .signup_btn:hover {
@@ -198,7 +220,6 @@ button {
 }
 
 .window_dark .buttons .login_btn {
-  background: #FF6565;
   margin-top: 80px;
   width: 107px;
   height: 51px;
@@ -210,6 +231,7 @@ button {
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
+  background: #FF6565;
 }
 
 .window_dark .buttons .login_btn:hover {

@@ -57,7 +57,6 @@ export const Auth = () => {
   }
   return(
     <div className={darkMode ? classes.window_dark : classes.window}>
-      <button onClick={changeThemeMode}>Change Mode</button>
       <img src={logo} alt="Please wait" className={classes.logo}/>
       <input type="text" placeholder="Username" name="login" onChange={loginInputHandler} className={classes.login}/>
       <input type="password" placeholder="Password" name="password" onChange={passwordInputHandler} className={classes.password}/>
@@ -68,6 +67,7 @@ export const Auth = () => {
       <div className={classes.notify_form}>
         <div className={notificationStyles}>{notificationText}</div>
       </div>
+      <div className={classes.changeThemeModeBtn} onClick={changeThemeMode}></div>
     </div>
   )
 }
