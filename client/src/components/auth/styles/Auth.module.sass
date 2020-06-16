@@ -1,0 +1,129 @@
+body
+  margin: 0 
+input
+  padding-bottom: 9px
+  padding-left: 8px
+  outline: none
+button
+  outline: none
+.failed
+  color: red
+  font-family: Roboto
+  font-style: normal
+  font-weight: 300
+  font-size: 32px 
+@mixin input-form
+  width: 40%
+  height: 35px
+  border-bottom-width: 1px
+  border-color: #C4C4C4
+  border-right-width: 0px
+  border-top-width: 0px
+  border-left-width: 0px
+  font-family: Roboto
+  font-style: normal
+  font-weight: 300
+  font-size: 32px 
+  line-height: 42px
+@mixin button-form
+  margin-top: 80px
+  width: 107px
+  height: 51px
+  border: 0
+  border-radius: 15px
+  font-family: Roboto
+  font-style: normal
+  font-weight: 500
+  font-size: 24px
+  line-height: 28px
+  color: #FFFFFF
+@mixin changeThemeModeBtnForm
+  border-radius: 100%
+  width: 31px
+  height: 31px
+  
+.window
+  display: flex
+  flex-direction: column
+  width: 100vw
+  height: 100vh
+  align-items: center
+  background: #ffffff
+  .changeThemeModeBtn
+    @include changeThemeModeBtnForm
+    background: #000000
+    &:hover
+      box-shadow: 0px 0px 4px #3F3F3F
+  .logo
+    margin-top: 40px
+  .login
+    @include input-form
+    color: black
+    margin-top: 80px
+    &:focus
+      border-color: #FF6565
+  .password
+    @include input-form
+    color: black
+    margin-top: 40px
+    &:focus
+      border-color: #79C7FF
+  .buttons
+    .signup_btn
+      background: #C5C5C5
+      margin-right: 15px
+      @include button-form
+      &:hover
+        box-shadow: 0px 0px 8px #C5C5C5
+    .login_btn
+      background: #79C7FF
+      @include button-form
+      &:hover
+        box-shadow: 0px 0px 8px #79C7FF
+  .notify_form
+    margin-top: 100px
+
+.window_dark
+  display: flex
+  flex-direction: column
+  width: 100vw
+  height: 100vh
+  align-items: center
+  background: #000000
+  .changeThemeModeBtn
+    @include changeThemeModeBtnForm
+    background: #F1F372
+    &:hover
+      box-shadow: 0px 0px 4px #F1F372
+  .logo
+    margin-top: 40px
+  .login
+    @include input-form
+    color: white
+    margin-top: 80px
+    border-color: #3E3E3E !important
+    background-color: #000000
+    &:focus
+      border-color: #FF6565 !important
+  .password
+    @include input-form
+    color: white
+    margin-top: 40px
+    border-color: #3E3E3E !important
+    background-color: #000000
+    &:focus
+      border-color: #79C7FF !important
+  .buttons
+    .signup_btn
+      @include button-form
+      background: #3E3E3E
+      margin-right: 15px
+      &:hover
+        box-shadow: 0px 0px 8px #3E3E3E
+    .login_btn
+      @include button-form
+      background: #FF6565
+      &:hover
+        box-shadow: 0px 0px 8px #FF6565
+  .notify_form
+    margin-top: 100px
