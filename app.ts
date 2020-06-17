@@ -7,6 +7,7 @@ const PORT: number = config.get("port");
 
 app.use(express.json({ extended: true }));
 app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/personal", require("./routes/create.routes"));
 
 async function start(): Promise<void> {
   try {
