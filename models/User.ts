@@ -17,7 +17,9 @@ const UserSchema = new Schema({
     default: [
       {
         name: { type: String },
-        completed: { type: Boolean }
+        description: { type: String },
+        status: { type: String },
+        timeInProgress: { type: Number }
       }
     ]
   }

@@ -9,10 +9,14 @@ export interface IUser {
   login: string;
   password: string;
   personalChannel: IPersonalChannel;
+  save: Function
 }
 export interface IPersonalChannel {
-  projects: Array<IProject>;
+  [projectName: string]: Array<IProject>;
 }
 export interface IProject {
   name: string;
+  description: string;
+  status: string;
+  timeInProgress: number;
 }
