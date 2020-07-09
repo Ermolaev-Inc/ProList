@@ -13,6 +13,14 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
+  personalChannel: {
+    default: [
+      {
+        name: { type: String },
+        completed: { type: Boolean }
+      }
+    ]
+  }
 })
 
 export const User = model("User", UserSchema);

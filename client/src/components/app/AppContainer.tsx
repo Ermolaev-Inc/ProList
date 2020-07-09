@@ -11,7 +11,11 @@ export const AppContainer = () => {
         return console.error("You are not auth");
       }
       const userData = JSON.parse(localStorageUserData);
+      console.log("Before");
+      
       const data = await request("/api/personal/create", "POST", {userData});
+      console.log("After");
+      
     } catch (error) {
       console.log("Error", error);
     }
