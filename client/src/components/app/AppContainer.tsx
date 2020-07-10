@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useCallback, useState, useEffect, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
-import { json } from "express";
+import classes from "./styles/AppContainer.module.css";
+import { AuthContext } from "../../context/AuthContext";
 
-export const AppContainer = () => {
+export const AppContainer = (props: any) => {
   const request: Function = useHttp();
-  let localStorageUserData = localStorage.getItem("userData");
-  const handler = async () => {
+  const token = useContext(AuthContext);
+  let [data, setData] = useState([]);
+  const fetch = useCallback(async () => {
     try {
-      if (localStorageUserData == null) {
-        return console.error("You are not auth");
-      }
-      const userData = JSON.parse(localStorageUserData);
-      console.log("Before");
-      
-      const data = await request("/api/personal/create", "POST", {userData});
-      console.log("After");
-      
+      const dataFetched = await request("/api/data", "GET", null, {
+        Authorization: `Bearer ${token.token}`
+      });
+      setData(dataFetched.personalChannel);
     } catch (error) {
       console.log("Error", error);
     }
-  }
+  }, [token, request])
+  useEffect(() => {
+    fetch();
+  }, [fetch])
+  
   return(
-    <div>
-      <button onClick={handler}>Click me</button>
+    <div className={classes.channelForm}>
+      Hello
     </div>
   )
 }
