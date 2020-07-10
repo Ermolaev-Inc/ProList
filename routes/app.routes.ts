@@ -13,7 +13,6 @@ router.get(
     } catch (error) {
       res.status(500).json({ message: "Something is wrong" });
     }
-    
   }
 )
 
