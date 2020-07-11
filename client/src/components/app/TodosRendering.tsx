@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ProjectsRendering = (props: any) => {
+export const TodosRendering = (props: any) => {
   
   return(
     <>

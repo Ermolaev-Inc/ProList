@@ -8,7 +8,7 @@ export const useRoutes = (isAuth: boolean) => {
     return(
       <Switch>
         <Route path="/" >
-          <AppContainer data={"lol"}/>
+          <AppContainer />
         </Route>
       </Switch>
     )

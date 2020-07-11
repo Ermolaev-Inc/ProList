@@ -2,36 +2,41 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
-import { ProjectsRendering } from "./ProjectsRendering";
+import { Projects } from "./Projects";
+import { IAuthInfo, IUserData, IPersonalChannel } from "../../interfaces";
 
-export const AppContainer = (props: any) => {
+export const AppContainer = () => {
   const request: Function = useHttp();
-  const token = useContext(AuthContext);
-  let [data, setData]: [any, Function] = useState(undefined);
-  const fetch = useCallback(async () => {
+  const authInfo: IAuthInfo = useContext(AuthContext);
+  let [userPersonalProjectsData, setUserPersonalProjectsData]: [IPersonalChannel | undefined, Function] = useState(undefined);
+  const getUserData = useCallback(async () => {
     try {
-      const dataFetched = await request("/api/data", "GET", null, {
-        Authorization: `Bearer ${token.token}`
+      const dataFetched: IUserData = await request("/api/data", "GET", null, {
+        Authorization: `Bearer ${authInfo.token}`
       });
-      setData(dataFetched.personalChannel);
+      setUserPersonalProjectsData(dataFetched.personalChannel);
     } catch (error) {
       console.log("Error", error);
     }
-  }, [token, request])
+  }, [authInfo, request])
   useEffect(() => {
-    fetch();
+    getUserData();
   }, [fetch])
-  let [projects, setProjects] = useState("Lol");
+  let [projects, setProjects]: [Array<string>, Function] = useState([]);
   useEffect(() => {
-    if (data != undefined) {
-      console.log(data);
-      
-      setProjects(data.default.map((element: { name: string; }) => <ProjectsRendering projectName={element.name}/>));
+    if (userPersonalProjectsData !== undefined) {
+      for (let key in userPersonalProjectsData) {
+        setProjects((projects: any) => [...projects, key]);
+      }
     }
-  }, [data])
+  }, [userPersonalProjectsData])
+  const renderingProjects = projects.map(project => <Projects projectName={project} />);
   return(
-    <div className={classes.channelForm}>
-      {projects}
-    </div>
+    <>
+      <div className={classes.channelsForm} />
+      <div className={classes.projectsForm}>
+        {renderingProjects}
+      </div>
+    </>
   )
 }
