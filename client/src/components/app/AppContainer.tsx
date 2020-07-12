@@ -30,13 +30,16 @@ export const AppContainer = () => {
       }
     }
   }, [userPersonalProjectsData])
+
   const renderingProjects = projects.map(project => <Projects projectName={project} />);
   return(
-    <>
-      <div className={classes.channelsForm} />
+    <div className={classes.wrapper}>
+      <div className={classes.channelsForm}>
+        <div className={classes.default}></div>
+      </div>
       <div className={classes.projectsForm}>
         {renderingProjects}
       </div>
-    </>
+    </div>
   )
 }
