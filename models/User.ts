@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
 const UserSchema = new Schema({
   login: {
@@ -13,6 +13,16 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
+  personalChannel: {
+    default: [
+      {
+        name: { type: String },
+        description: { type: String },
+        status: { type: String },
+        timeInProgress: { type: Number }
+      }
+    ]
+  }
 })
 
 export const User = model("User", UserSchema);
