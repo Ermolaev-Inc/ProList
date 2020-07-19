@@ -53,8 +53,7 @@ button {
   border-top-width: 0px;
   border-left-width: 0px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 32px;
   line-height: 42px;
   color: black;
@@ -74,8 +73,7 @@ button {
   border-top-width: 0px;
   border-left-width: 0px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 32px;
   line-height: 42px;
   color: black;
@@ -162,8 +160,7 @@ button {
   border-top-width: 0px;
   border-left-width: 0px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 32px;
   line-height: 42px;
   color: white;
@@ -185,8 +182,7 @@ button {
   border-top-width: 0px;
   border-left-width: 0px;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 32px;
   line-height: 42px;
   color: white;
@@ -239,5 +235,5 @@ button {
 }
 
 .window_dark .notify_form {
-  margin-top: 100px;
+  margin-top: 10px;
 }
