@@ -7,16 +7,20 @@ input
 button
   outline: none
 .failed
+  display: flex
+  justify-self: center
+  margin-top: 20px
   color: red
   font-family: Roboto
   font-style: normal
   font-weight: 300
   font-size: 32px 
+  height: 10px
 @mixin input-form
   width: 40%
   height: 35px
   border-bottom-width: 1px
-  border-color: #C4C4C4
+  border-color: #C4C4C4 
   border-right-width: 0px
   border-top-width: 0px
   border-left-width: 0px
@@ -37,6 +41,7 @@ button
   line-height: 28px
   color: #FFFFFF
 @mixin changeThemeModeBtnForm
+  margin-top: 110px
   border-radius: 100%
   width: 31px
   height: 31px
@@ -79,8 +84,6 @@ button
       @include button-form
       &:hover
         box-shadow: 0px 0px 8px #79C7FF
-  .notify_form
-    margin-top: 100px
 
 .window_dark
   display: flex
@@ -124,5 +127,4 @@ button
       background: #FF6565
       &:hover
         box-shadow: 0px 0px 8px #FF6565
-  .notify_form
-    margin-top: 10px
+    

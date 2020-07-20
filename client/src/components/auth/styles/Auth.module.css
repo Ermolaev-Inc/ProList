@@ -13,11 +13,15 @@ button {
 }
 
 .failed {
+  display: flex;
+  justify-self: center;
+  margin-top: 20px;
   color: red;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 32px;
+  height: 10px;
 }
 
 .window {
@@ -30,6 +34,7 @@ button {
 }
 
 .window .changeThemeModeBtn {
+  margin-top: 110px;
   border-radius: 100%;
   width: 31px;
   height: 31px;
@@ -123,10 +128,6 @@ button {
   box-shadow: 0px 0px 8px #79C7FF;
 }
 
-.window .notify_form {
-  margin-top: 100px;
-}
-
 .window_dark {
   display: flex;
   flex-direction: column;
@@ -137,6 +138,7 @@ button {
 }
 
 .window_dark .changeThemeModeBtn {
+  margin-top: 110px;
   border-radius: 100%;
   width: 31px;
   height: 31px;
@@ -232,8 +234,4 @@ button {
 
 .window_dark .buttons .login_btn:hover {
   box-shadow: 0px 0px 8px #FF6565;
-}
-
-.window_dark .notify_form {
-  margin-top: 10px;
 }
