@@ -5,6 +5,11 @@
   font-size: 24px
   line-height: 28px
   color: #363636
+ul
+  margin: 0
+  padding: 0
+li 
+  list-style: none
 
 .wrapper
   display: flex
@@ -20,14 +25,29 @@
         border-radius: 100%
         background: linear-gradient(131.16deg, #FF8080 -17.4%, #F8CDFF 124.74%)
   .projectsForm
-    display: flexbox
-    justify-content: center
     width: 21.7013889%
     border-right: 0.5px solid #C4C4C4
-    .project
+    .projects
       margin-top: 15px
-      display: flex
-      justify-content: center
+      margin-left: 18px
       @include projectsText
+      cursor: pointer
+.selectedProject
+  margin-left: 5px
+.notSelectedForm
+  height: 44px
+  width: 80%
+  display: flex
+  align-items: center
+.selectedForm
+  display: flex
+  align-items: center
+  height: 44px
+  width: 90%
+  background: #F1F1F1
+  border-radius: 10px
+.notSelectedProject
+  margin-left: 5px
+        
 
       

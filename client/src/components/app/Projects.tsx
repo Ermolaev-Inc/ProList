@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./styles/AppContainer.module.css";
 
 export const Projects = (props: any) => {
-  debugger
+  let [isSelected, setSelected] = useState(false);
+  const selectProject = () => {
+    setSelected(!isSelected);
+  }
   return(
-    <div className={classes.project}>
-      {props.projectName}
+    <div className={classes.projects}>
+      <ul>
+        <div className={isSelected ? classes.selectedForm : classes.notSelectedForm}>
+          <li key={props.id} onClick={selectProject} className={isSelected ? classes.selectedProject : classes.notSelectedProject}>{props.projectName}</li>
+        </div>
+      </ul>
     </div>
   )
 }

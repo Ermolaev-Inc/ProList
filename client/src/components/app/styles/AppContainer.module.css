@@ -1,3 +1,12 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 .wrapper {
   display: flex;
 }
@@ -18,20 +27,42 @@
 }
 
 .wrapper .projectsForm {
-  display: flexbox;
-  justify-content: center;
   width: 21.7013889%;
   border-right: 0.5px solid #C4C4C4;
 }
 
-.wrapper .projectsForm .project {
+.wrapper .projectsForm .projects {
   margin-top: 15px;
-  display: flex;
-  justify-content: center;
+  margin-left: 18px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
   color: #363636;
+  cursor: pointer;
+}
+
+.selectedProject {
+  margin-left: 5px;
+}
+
+.notSelectedForm {
+  height: 44px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.selectedForm {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  width: 90%;
+  background: #F1F1F1;
+  border-radius: 10px;
+}
+
+.notSelectedProject {
+  margin-left: 5px;
 }
