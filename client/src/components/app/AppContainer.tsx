@@ -4,6 +4,7 @@ import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./Projects";
 import { IAuthInfo, IUserData, IPersonalChannel } from "../../interfaces";
+import addButton from "./img/button.svg";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -33,11 +34,20 @@ export const AppContainer = () => {
   const renderingProjects = projects.map(project => <Projects projectName={project} id={projects.indexOf(project)} />);
   return(
     <div className={classes.wrapper}>
-      <div className={classes.channelsForm}>
+      <div className={classes.channelsWrapper}>
         <div className={classes.default}></div>
       </div>
-      <div className={classes.projectsForm}>
-          {renderingProjects}
+      <div className={classes.projectsWrapper}>
+        <div className={classes.projectsContainer}>
+          <div className={classes.projects}>
+            <ul>
+              {renderingProjects}
+            </ul>
+          </div>
+          <div className={classes.addButtonWrapper}>
+            <img src={addButton} alt="" className={classes.addButton} />
+          </div>
+        </div>
       </div>
     </div>
   )
