@@ -5,13 +5,6 @@ export const Projects = (props: any) => {
   let [isSelected, setSelected] = useState(false);
   const selectProject = () => {
     setSelected(!isSelected);
-    if (isSelected) {
-      try {
-        
-      } catch (error) {
-        
-      }
-    }
   }
   return(
     <div className={classes.project}>

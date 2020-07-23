@@ -4,7 +4,8 @@ import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./Projects";
 import { IAuthInfo, IUserData, IPersonalChannel } from "../../interfaces";
-import addButton from "./img/button.svg";
+import addButtonLight from "./img/addButtonLight.svg";
+import addButtonDark from "./img/addButtonDark.svg";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -31,9 +32,14 @@ export const AppContainer = () => {
       }
     }
   }, [userPersonalProjectsData])
+  const showTemplateCreatingProject = () => {
+    console.log("New project"); 
+  }
+  let [darkMode, setDarkMode] = useState(true);
+
   const renderingProjects = projects.map(project => <Projects projectName={project} id={projects.indexOf(project)} />);
   return(
-    <div className={classes.wrapper}>
+    <div className={darkMode ? classes.wrapperDark : classes.wrapper}>
       <div className={classes.channelsWrapper}>
         <div className={classes.default}></div>
       </div>
@@ -45,7 +51,7 @@ export const AppContainer = () => {
             </ul>
           </div>
           <div className={classes.addButtonWrapper}>
-            <img src={addButton} alt="" className={classes.addButton} />
+            <img src={darkMode ? addButtonDark : addButtonLight} alt="" className={classes.addButton} onClick={showTemplateCreatingProject} />
           </div>
         </div>
       </div>
