@@ -6,6 +6,8 @@ import { Projects } from "./Projects";
 import { IAuthInfo, IUserData, IPersonalChannel } from "../../interfaces";
 import addButtonLight from "./img/addButtonLight.svg";
 import addButtonDark from "./img/addButtonDark.svg";
+import { ThemeContext } from "../../context/ThemeContext";
+import { Theme } from "../../context/ThemeContext";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -35,25 +37,30 @@ export const AppContainer = () => {
   const showTemplateCreatingProject = () => {
     console.log("New project"); 
   }
-  let [darkMode, setDarkMode] = useState(true);
+
   const renderingProjects = projects.map(project => <Projects projectName={project} id={projects.indexOf(project)} />);
   return(
-    <div className={darkMode ? classes.wrapperDark : classes.wrapper}>
-      <div className={classes.channelsWrapper}>
-        <div className={classes.default}></div>
-      </div>
-      <div className={classes.projectsWrapper}>
-        <div className={classes.projectsContainer}>
-          <div className={classes.projects}>
-            <ul>
-              {renderingProjects}
-            </ul>
-          </div>
-          <div className={classes.addButtonWrapper}>
-            <img src={darkMode ? addButtonDark : addButtonLight} alt="" className={classes.addButton} onClick={showTemplateCreatingProject} />
+    <ThemeContext.Consumer>
+      {({theme, changeTheme}) => (
+        <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
+        <div className={classes.channelsWrapper}>
+          <div className={classes.default}></div>
+        </div>
+        <div className={classes.projectsWrapper}>
+          <div className={classes.projectsContainer}>
+            <div className={classes.projects}>
+              <ul>
+                {renderingProjects}
+              </ul>
+            </div>
+            <div className={classes.addButtonWrapper}>
+              <img src={theme === Theme.LIGHT ? addButtonLight : addButtonDark} alt="" className={classes.addButton} onClick={showTemplateCreatingProject} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      )}
+    </ThemeContext.Consumer>
+    
   )
 }

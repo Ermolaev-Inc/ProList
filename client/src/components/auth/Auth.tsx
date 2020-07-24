@@ -5,14 +5,12 @@ import logo from "./img/logo.svg";
 import { login, password } from "../../types";
 import { AuthContext } from "../../context/AuthContext";
 import { IDataLogin, IDataRegister } from "../../interfaces";
+import { ThemeContext } from "../../context/ThemeContext";
+import { Theme } from "../../context/ThemeContext";
 
 export const Auth = () => {
-  let [darkMode, setDarkMode] = useState(false);
   let [notificationStyles, setNotificationStyles] = useState(classes.failed);
   let [notificationText, setNotificationText] = useState("");
-  const changeThemeMode = () => {
-    setDarkMode(!darkMode);
-  }
   const checkSuccessAuth = (successfully: boolean) => {
     if (!successfully) {
       notifyUserAboutFailed(true);
@@ -56,18 +54,22 @@ export const Auth = () => {
     }
   }
   return(
-    <div className={darkMode ? classes.window_dark : classes.window}>
-      <img src={logo} alt="Please wait" className={classes.logo}/>
-      <input type="text" placeholder="Username" name="login" onChange={loginInputHandler} className={classes.login}/>
-      <input type="password" placeholder="Password" name="password" onChange={passwordInputHandler} className={classes.password}/>
-      <div className={classes.buttons}>
-        <button className={classes.signup_btn} onClick={registerHandler}>Sign up</button>
-        <button className={classes.login_btn} onClick={loginHandler}>Login</button>
-      </div>
-      <div className={classes.notify_form}>
-        <div className={notificationStyles}>{notificationText}</div>
-      </div>
-      <div className={classes.changeThemeModeBtn} onClick={changeThemeMode}></div>
-    </div>
+    <ThemeContext.Consumer>
+      {({theme, changeTheme}) => (
+        <div className={theme === Theme.LIGHT ? classes.window : classes.window_dark}>
+          <img src={logo} alt="Please wait" className={classes.logo}/>
+          <input type="text" placeholder="Username" name="login" onChange={loginInputHandler} className={classes.login}/>
+          <input type="password" placeholder="Password" name="password" onChange={passwordInputHandler} className={classes.password}/>
+          <div className={classes.buttons}>
+            <button className={classes.signup_btn} onClick={registerHandler}>Sign up</button>
+            <button className={classes.login_btn} onClick={loginHandler}>Login</button>
+          </div>
+          <div className={classes.notify_form}>
+            <div className={notificationStyles}>{notificationText}</div>
+          </div>
+          <div className={classes.changeThemeModeBtn} onClick={changeTheme}></div>
+        </div>
+      )}
+    </ThemeContext.Consumer>
   )
 }
