@@ -7,7 +7,7 @@ import { useLogin } from "./hooks/login.hook";
 import { Theme } from "./context/ThemeContext";
 
 function App() {
-  const { login, token, userId } = useLogin();
+  const {login, token, userId} = useLogin();
   const isAuth = !!token;
   const routes = useRoutes(isAuth);
   let [theme, setTheme] = useState(Theme.LIGHT);

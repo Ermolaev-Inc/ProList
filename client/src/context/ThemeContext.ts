@@ -5,11 +5,7 @@ export enum Theme {
   DARK = "DARK",
 }
 
-function changeTheme(): void {
-
-}
-
 export const ThemeContext = createContext({
   theme: Theme.LIGHT,
-  changeTheme: changeTheme,
+  changeTheme: () => {},
 }); 

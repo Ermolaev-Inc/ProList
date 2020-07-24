@@ -7,6 +7,7 @@ import { IAuthInfo, IUserData, IPersonalChannel } from "../../interfaces";
 import addButtonLight from "./img/addButtonLight.svg";
 import addButtonDark from "./img/addButtonDark.svg";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Theme } from "../../context/ThemeContext";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -41,7 +42,7 @@ export const AppContainer = () => {
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
-        <div className={theme === "DARK" ? classes.wrapperDark : classes.wrapper}>
+        <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
         <div className={classes.channelsWrapper}>
           <div className={classes.default}></div>
         </div>
@@ -53,7 +54,7 @@ export const AppContainer = () => {
               </ul>
             </div>
             <div className={classes.addButtonWrapper}>
-              <img src={theme === "DARK" ? addButtonDark : addButtonLight} alt="" className={classes.addButton} onClick={showTemplateCreatingProject} />
+              <img src={theme === Theme.LIGHT ? addButtonLight : addButtonDark} alt="" className={classes.addButton} onClick={showTemplateCreatingProject} />
             </div>
           </div>
         </div>
