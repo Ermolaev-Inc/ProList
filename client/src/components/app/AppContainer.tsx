@@ -36,7 +36,6 @@ export const AppContainer = () => {
     console.log("New project"); 
   }
   let [darkMode, setDarkMode] = useState(true);
-
   const renderingProjects = projects.map(project => <Projects projectName={project} id={projects.indexOf(project)} />);
   return(
     <div className={darkMode ? classes.wrapperDark : classes.wrapper}>
