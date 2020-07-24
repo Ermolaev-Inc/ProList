@@ -1,9 +1,10 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import { Auth } from "./components/auth/Auth";
 import { AppContainer } from "./components/app/AppContainer";
 
 export const useRoutes = (isAuth: boolean) => {
+  
   if (isAuth) {
     return(
       <Switch>

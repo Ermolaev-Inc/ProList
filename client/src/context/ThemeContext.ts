@@ -1,8 +1,15 @@
-import React from "react";
+import { createContext } from "react";
 
-enum Theme {
+export enum Theme {
   LIGHT = "LIGHT",
   DARK = "DARK",
 }
 
-export const ThemeContext = React.createContext(Theme.LIGHT); 
+function changeTheme(): void {
+
+}
+
+export const ThemeContext = createContext({
+  theme: Theme.LIGHT,
+  changeTheme: changeTheme,
+}); 
