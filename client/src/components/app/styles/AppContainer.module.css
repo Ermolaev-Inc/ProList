@@ -66,18 +66,18 @@ li {
   display: block;
 }
 
-.selectedProject {
+.wrapper .selectedProject {
   margin-left: 5px;
 }
 
-.notSelectedForm {
+.wrapper .notSelectedForm {
   height: 44px;
   width: 80%;
   display: flex;
   align-items: center;
 }
 
-.selectedForm {
+.wrapper .selectedForm {
   display: flex;
   align-items: center;
   height: 44px;
@@ -86,7 +86,7 @@ li {
   border-radius: 10px;
 }
 
-.notSelectedProject {
+.wrapper .notSelectedProject {
   margin-left: 5px;
 }
 
@@ -150,18 +150,18 @@ li {
   display: block;
 }
 
-.selectedProject {
+.wrapperDark .selectedProject {
   margin-left: 5px;
 }
 
-.notSelectedForm {
+.wrapperDark .notSelectedForm {
   height: 44px;
   width: 80%;
   display: flex;
   align-items: center;
 }
 
-.selectedForm {
+.wrapperDark .selectedForm {
   display: flex;
   align-items: center;
   height: 44px;
@@ -170,6 +170,6 @@ li {
   border-radius: 10px;
 }
 
-.notSelectedProject {
+.wrapperDark .notSelectedProject {
   margin-left: 5px;
 }
