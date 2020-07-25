@@ -15,7 +15,7 @@ export const AppContainer = () => {
   let [userPersonalProjectsData, setUserPersonalProjectsData]: [IPersonalChannel | undefined, Function] = useState(undefined);
   const getUserData = useCallback(async () => {
     try {
-      const dataFetched: IUserData = await request("/api/data", "GET", null, {
+      const dataFetched: IUserData = await request("/api/personal/data", "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
       });
       setUserPersonalProjectsData(dataFetched.personalChannel);
