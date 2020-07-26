@@ -12,6 +12,7 @@ export const AppContainer = () => {
   const request: Function = useHttp();
   const authInfo: IAuthInfo = useContext(AuthContext);
   let [userPersonalProjectsData, setUserPersonalProjectsData]: [Array<IProjects> | undefined, Function] = useState(undefined);
+  let [projects, setProjects]: [Array<string>, Function] = useState([]);
   const getUserData = useCallback(async () => {
     try {
       const dataFetched: IUserData = await request("/api/personal/data", "GET", null, {
@@ -25,7 +26,6 @@ export const AppContainer = () => {
   useEffect(() => {
     getUserData();
   }, [fetch])
-  let [projects, setProjects]: [Array<string>, Function] = useState([]);
   useEffect(() => {
     if (userPersonalProjectsData !== undefined) {
       userPersonalProjectsData.map(project => setProjects((projects: any) => [...projects, project.projectName]));
