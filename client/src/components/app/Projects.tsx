@@ -6,10 +6,11 @@ export const Projects = (props: any) => {
   const selectProject = () => {
     setSelected(!isSelected);
   }
+  
   return(
     <div className={classes.project}>
       <div className={isSelected ? classes.selectedForm : classes.notSelectedForm}>
-        <li key={props.id} onClick={selectProject} className={isSelected ? classes.selectedProject : classes.notSelectedProject}>{props.projectName}</li>
+        <li key={props.key} onClick={selectProject} className={isSelected ? classes.selectedProject : classes.notSelectedProject}>{props.projectName}</li>
       </div>
     </div>
   )
