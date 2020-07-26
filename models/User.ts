@@ -13,16 +13,17 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
-  personalChannel: {
-    default: [
-      {
+  personalChannel: [
+    {
+      projectName: { type: String },
+      projectContent: [{
         name: { type: String },
         description: { type: String },
         status: { type: String },
         timeInProgress: { type: Number }
-      }
-    ]
-  }
+      }]
+    }
+  ]
 })
 
 export const User = model("User", UserSchema);
