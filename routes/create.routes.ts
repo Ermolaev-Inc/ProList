@@ -12,7 +12,6 @@ router.post(
       if (!user) {
         return res.status(400).json({ message: "This user does not exis" });
       }
-      await user.save();  
       res.status(201).json({ message: "Success" });
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
