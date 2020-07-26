@@ -16,10 +16,11 @@ export interface IAuthInfo {
 export interface IUserData {
   login: string;
   password: string;
-  personalChannel: IPersonalChannel;
+  personalChannel: Array<IProjects>;
 }
-export interface IPersonalChannel {
-  [projectName: string]: Array<ITodo>
+export interface IProjects {
+  projectName: string;
+  projectContent: Array<ITodo>
 }
 export interface ITodo {
   name: string;
