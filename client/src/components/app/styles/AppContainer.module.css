@@ -28,6 +28,7 @@ li {
 }
 
 .wrapper .projectsWrapper {
+  overflow: scroll;
   width: 21.7013889%;
   border-right: 0.5px solid #C4C4C4;
   height: 100vh;
@@ -35,9 +36,7 @@ li {
 
 .wrapper .projectsWrapper .projectsContainer {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
+  display: grid;
   margin-left: 21px;
   margin-top: 10px;
 }
@@ -49,11 +48,11 @@ li {
   font-size: 24px;
   line-height: 28px;
   color: #363636;
-  cursor: pointer;
 }
 
 .wrapper .projectsWrapper .projectsContainer .projects .project {
   margin-bottom: 7px;
+  cursor: pointer;
 }
 
 .wrapper .projectsWrapper .projectsContainer .addButtonWrapper {

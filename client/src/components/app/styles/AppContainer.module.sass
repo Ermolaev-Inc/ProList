@@ -37,22 +37,21 @@ li
         border-radius: 100%
         background: linear-gradient(131.16deg, #FF8080 -17.4%, #F8CDFF 124.74%)
   .projectsWrapper
+    overflow: scroll
     width: 21.7013889%
     border-right: 0.5px solid #C4C4C4
     height: 100vh
     .projectsContainer
       height: 100vh
-      display: flex
-      flex-direction: column
-      align-content: space-between
+      display: grid
       margin-left: 21px
       margin-top: 10px
       .projects
         @include projectsText
         color: #363636
-        cursor: pointer
         .project
           margin-bottom: 7px
+          cursor: pointer
       .addButtonWrapper
         display: flex
         justify-content: center
@@ -67,7 +66,6 @@ li
     @include selectedForm($color: #F1F1F1)
   .notSelectedProject
     margin-left: 5px
-
 .wrapperDark
   display: flex
   background-color: #000000
