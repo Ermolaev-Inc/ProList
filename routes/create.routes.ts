@@ -2,13 +2,18 @@ import { Router } from "express";
 import { User } from "../models/User";
 const router = Router();
 
+interface IUserData {
+  authInfo: any;
+  projectName: string;
+}
+
 router.post(
   "/project",
   async (req: any, res: any) => {
     try {
-      const userData = req.body;
+      const userData: IUserData = req.body;
       const userId = userData.authInfo.userId;
-      const user = await User.update({ _id: userId }, {$push: {personalChannel: {projectName:"New Project"}}}, {upsert: false});
+      const user = await User.update({ _id: userId }, {$push: {personalChannel: {projectName:userData.projectName}}}, {upsert: false});
       if (!user) {
         return res.status(400).json({ message: "This user does not exis" });
       }

@@ -7,6 +7,7 @@ import { IAuthInfo, IUserData, IProjects } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
+import { CreateProjectTemplate } from "./CreateProjectTemplate";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -31,8 +32,10 @@ export const AppContainer = () => {
       userPersonalProjectsData.map(project => setProjects((projects: any) => [...projects, project.projectName]));
     }
   }, [userPersonalProjectsData, setProjects])
-
-  
+  let [isProjectCreating, setProjectCreating]: [boolean, Function] = useState(false);
+  const createProject = () => {
+    setProjectCreating(true);
+  }
   const renderingProjects = projects.map(project => <Projects projectName={project} key={projects.indexOf(project)} />);
   return(
     <ThemeContext.Consumer>
@@ -46,9 +49,10 @@ export const AppContainer = () => {
               <div className={classes.projects}>
                 <ul>
                   {renderingProjects}
+                  {isProjectCreating && <CreateProjectTemplate />} 
                 </ul>
               </div>
-              <CreateProjectButton />
+              <CreateProjectButton createProject={createProject}/>
             </div>
           </div>
         </div>

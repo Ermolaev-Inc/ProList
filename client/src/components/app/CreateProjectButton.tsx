@@ -7,7 +7,7 @@ import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
 import { IAuthInfo, IProjects } from "../../interfaces";
 
-export const CreateProjectButton = () => {
+export const CreateProjectButton = (props: any) => {
   const request: Function = useHttp();
   const authInfo: IAuthInfo = useContext(AuthContext)
   const createNewProject = useCallback(async () => {
@@ -17,14 +17,16 @@ export const CreateProjectButton = () => {
       console.log("Error", error);
     }
   }, [request])
+  const showProjectForm = () => {
 
+  }
   return(
     <div className={classes.addButtonWrapper}>
       <ThemeContext.Consumer>
       {({theme}) => (
-        <img src={theme === Theme.LIGHT ? addButtonLight : addButtonDark} alt="" className={classes.addButton} onClick={createNewProject} />
+        <img src={theme === Theme.LIGHT ? addButtonLight : addButtonDark} alt="" className={classes.addButton} onClick={props.createProject} />
       )}
-    </ThemeContext.Consumer>
+      </ThemeContext.Consumer>
     </div>
   )
 }

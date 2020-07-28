@@ -7,6 +7,10 @@ li {
   list-style: none;
 }
 
+input {
+  padding: 0;
+}
+
 .wrapper {
   display: flex;
 }
@@ -87,6 +91,21 @@ li {
 
 .wrapper .notSelectedProject {
   margin-left: 5px;
+}
+
+.wrapper .projectInput {
+  height: 44px;
+  width: 80%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #363636;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
 }
 
 .wrapperDark {

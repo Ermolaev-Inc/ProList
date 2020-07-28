@@ -6,7 +6,7 @@ export const Projects = (props: any) => {
   const selectProject = () => {
     setSelected(!isSelected);
   }
-  
+
   return(
     <div className={classes.project}>
       <div className={isSelected ? classes.selectedForm : classes.notSelectedForm}>
