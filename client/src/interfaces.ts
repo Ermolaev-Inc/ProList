@@ -28,3 +28,10 @@ export interface ITodo {
   status: string;
   timeInProgress: number;
 }
+
+
+// New
+export interface IPropsProjectsComponent {
+  projectName: string;
+  key: number;
+}

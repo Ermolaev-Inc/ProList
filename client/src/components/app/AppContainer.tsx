@@ -36,7 +36,7 @@ export const AppContainer = () => {
   const createProject = () => {
     setProjectCreating(true);
   }
-  const renderingProjects = projects.map(project => <Projects projectName={project} key={projects.indexOf(project)} />);
+  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} />);
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
