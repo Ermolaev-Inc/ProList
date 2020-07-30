@@ -130,6 +130,7 @@ input {
 }
 
 .wrapperDark .projectsWrapper {
+  overflow: scroll;
   width: 21.7013889%;
   border-right: 0.5px solid #545454;
   height: 100vh;
