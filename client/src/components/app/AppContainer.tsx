@@ -3,7 +3,7 @@ import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./Projects";
-import { IAuthInfo, IUserData, IProjects } from "../../interfaces";
+import { IAuthContext, IUserData, IProject } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
@@ -11,10 +11,10 @@ import { CreateProjectTemplate } from "./CreateProjectTemplate";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
-  const authInfo: IAuthInfo = useContext(AuthContext);
-  let [userPersonalProjectsData, setUserPersonalProjectsData]: [Array<IProjects> | undefined, Function] = useState(undefined);
-  let [projects, setProjects]: [Array<string>, Function] = useState([]);
-  const getUserData = useCallback(async () => {
+  const authInfo: IAuthContext = useContext(AuthContext);
+  let [userPersonalProjectsData, setUserPersonalProjectsData]: [IProject[] | undefined, Function] = useState(undefined);
+  let [projects, setProjects]: [string[], Function] = useState([]);
+  const getUserData = useCallback(async (): Promise<void> => {
     try {
       const dataFetched: IUserData = await request("/api/personal/data", "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
@@ -29,11 +29,11 @@ export const AppContainer = () => {
   }, [fetch])
   useEffect(() => {
     if (userPersonalProjectsData !== undefined) {
-      userPersonalProjectsData.map(project => setProjects((projects: any) => [...projects, project.projectName]));
+      userPersonalProjectsData.map(project => setProjects((projects: IProject[]) => [...projects, project.projectName]));
     }
   }, [userPersonalProjectsData, setProjects])
   let [isProjectCreating, setProjectCreating]: [boolean, Function] = useState(false);
-  const createProject = () => {
+  const showCreatePrjectTemplate = (): void => {
     setProjectCreating(true);
   }
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} />);
@@ -52,7 +52,7 @@ export const AppContainer = () => {
                   {isProjectCreating && <CreateProjectTemplate />} 
                 </ul>
               </div>
-              <CreateProjectButton createProject={createProject}/>
+              <CreateProjectButton showCreatePrjectTemplate={showCreatePrjectTemplate}/>
             </div>
           </div>
         </div>

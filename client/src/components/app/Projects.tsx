@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classes from "./styles/AppContainer.module.css";
-import { IPropsProjectsComponent } from "../../interfaces";
+import { IPropsProjects } from "../../interfaces";
 
-export const Projects = (props: IPropsProjectsComponent) => {
+export const Projects = (props: IPropsProjects) => {
   let [isSelected, setSelected] = useState(false);
   const selectProject = () => {
     setSelected(!isSelected);

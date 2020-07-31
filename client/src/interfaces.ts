@@ -1,4 +1,5 @@
 import { token, userId, login } from "./types";
+
 export interface IDataRegister { 
   message: string;
   successfully: boolean;
@@ -7,31 +8,31 @@ export interface IDataLogin extends IDataRegister {
   token: string;
   userId: string;
 }
-export interface IAuthInfo {
+export interface IPropsProjects {
+  projectName: string;
+  key: number;
+}
+export interface IPropsCreateProjectButton {
+  showCreatePrjectTemplate: any;
+}
+export interface IAuthContext {
   token: token;
   userId: userId;
   login: Function;
   isAuth: boolean;
 }
-export interface IUserData {
-  login: string;
-  password: string;
-  personalChannel: Array<IProjects>;
-}
-export interface IProjects {
+export interface IProject {
   projectName: string;
-  projectContent: Array<ITodo>
+  projectContent: ITodo[]
 }
-export interface ITodo {
+interface ITodo {
   name: string;
   description: string;
   status: string;
   timeInProgress: number;
 }
-
-
-// New
-export interface IPropsProjectsComponent {
-  projectName: string;
-  key: number;
+export interface IUserData {
+  login: string;
+  password: string;
+  personalChannel: IProject[];
 }
