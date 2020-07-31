@@ -36,6 +36,12 @@ export const AppContainer = () => {
   const showCreatePrjectTemplate = (): void => {
     setProjectCreating(true);
   }
+  const createProject = async (event: any): Promise<void> => {
+    if (event.key === "Enter") {
+      const projectName: string = event.target.value;
+      await request("/api/personal/create/project", "POST", {authInfo, projectName});
+    }
+  }
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} />);
   return(
     <ThemeContext.Consumer>
@@ -49,7 +55,7 @@ export const AppContainer = () => {
               <div className={classes.projects}>
                 <ul>
                   {renderingProjects}
-                  {isProjectCreating && <CreateProjectTemplate />} 
+                  {isProjectCreating && <CreateProjectTemplate createProject={createProject} />} 
                 </ul>
               </div>
               <CreateProjectButton showCreatePrjectTemplate={showCreatePrjectTemplate}/>

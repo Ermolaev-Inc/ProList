@@ -15,6 +15,9 @@ export interface IPropsProjects {
 export interface IPropsCreateProjectButton {
   showCreatePrjectTemplate: any;
 }
+export interface IPropsCreateProjectTemplate {
+  createProject: any
+}
 export interface IAuthContext {
   token: token;
   userId: userId;
