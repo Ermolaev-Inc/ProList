@@ -47,6 +47,9 @@ export const AppContainer = () => {
   const renderProjectTodos = (projectName: string) => {
     getProjectTodos(projectName)
   }
+  const clearTodosSection = () => {
+    setTodos([]);
+  }
   const getProjectTodos = useCallback(async (projectName: string) => {
     try {
       const dataFetched = await request(`api/personal/todos/${projectName}`, "GET", null, {
@@ -57,9 +60,9 @@ export const AppContainer = () => {
       console.log("Error", error);
     }
   }, [authInfo, request])
-  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} />);
+  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
   const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
-  debugger
+
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (

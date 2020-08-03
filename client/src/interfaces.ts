@@ -12,6 +12,7 @@ export interface IPropsProjects {
   projectName: string;
   key: number;
   renderProjectTodos: Function;
+  clearTodosSection: Function;
 }
 export interface IPropsCreateProjectButton {
   showCreatePrjectTemplate: any;

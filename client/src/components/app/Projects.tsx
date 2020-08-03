@@ -9,6 +9,8 @@ export const Projects = (props: IPropsProjects) => {
     setSelected(!isSelected);
     if (!isSelected) {
       props.renderProjectTodos(event.target.lastChild.data);
+    } else {
+      props.clearTodosSection();
     }
   }
   const showContextMenu = (event: any): void => {
