@@ -16,4 +16,26 @@ router.get(
   }
 )
 
+router.get(
+  "/todos/:projectName",
+  auth,
+  async (req: any, res: any) => {
+    try {
+      let user = await User.findOne({ _id: req.user.userId });
+      const projectName = req.params.projectName;
+      if (user) {
+        user.personalChannel.map((project: any) => {
+          if (project.projectName === projectName) {
+            res.json(project.projectContent);
+          }
+        })
+      } else {
+        console.log("You are not auth");
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+)
+
 module.exports = router;

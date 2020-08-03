@@ -11,6 +11,7 @@ export interface IDataLogin extends IDataRegister {
 export interface IPropsProjects {
   projectName: string;
   key: number;
+  renderProjectTodos: Function;
 }
 export interface IPropsCreateProjectButton {
   showCreatePrjectTemplate: any;

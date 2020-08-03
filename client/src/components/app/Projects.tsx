@@ -5,8 +5,11 @@ import { IPropsProjects } from "../../interfaces";
 export const Projects = (props: IPropsProjects) => {
   let [isSelected, setSelected]: [boolean, Function] = useState(false);
   let [isContextMenu, setContextMenu]: [boolean, Function] = useState(false);
-  const selectProject = (): void => {
+  const selectProject = (event: any): void => {
     setSelected(!isSelected);
+    if (!isSelected) {
+      props.renderProjectTodos(event.target.lastChild.data);
+    }
   }
   const showContextMenu = (event: any): void => {
     //TODO: Context Menu (#27)
@@ -16,10 +19,9 @@ export const Projects = (props: IPropsProjects) => {
   return(
     <div className={classes.project}>
       <div className={isSelected ? classes.selectedForm : classes.notSelectedForm}>
-        <li onClick={selectProject} 
-            onContextMenu={showContextMenu} 
+        <li onContextMenu={showContextMenu} 
             className={isSelected ? classes.selectedProject : classes.notSelectedProject}>
-              <span className={isContextMenu ? classes.contextMenu : ""}>{props.projectName}</span>
+              <span onClick={selectProject} className={isContextMenu ? classes.contextMenu : ""}>{props.projectName}</span>
         </li>
       </div>
     </div>

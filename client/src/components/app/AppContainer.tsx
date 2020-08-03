@@ -42,7 +42,21 @@ export const AppContainer = () => {
       await request("/api/personal/create/project", "POST", {authInfo, projectName});
     }
   }
-  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} />);
+  const renderProjectTodos = (projectName: string) => {
+    getProjectTodos(projectName);
+    //TODO
+  }
+  const getProjectTodos = useCallback(async (projectName: string) => {
+    try {
+      const dataFetched = await request(`api/personal/todos/${projectName}`, "GET", null, {
+        Authorization: `Bearer ${authInfo.token}`
+      });
+      //TODO
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }, [authInfo, request])
+  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} />);
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
