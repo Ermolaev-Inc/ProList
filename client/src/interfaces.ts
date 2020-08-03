@@ -29,7 +29,7 @@ export interface IProject {
   projectName: string;
   projectContent: ITodo[]
 }
-interface ITodo {
+export interface ITodo {
   name: string;
   description: string;
   status: string;

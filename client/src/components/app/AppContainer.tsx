@@ -3,11 +3,12 @@ import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./Projects";
-import { IAuthContext, IUserData, IProject } from "../../interfaces";
+import { IAuthContext, IUserData, IProject, ITodo } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
 import { CreateProjectTemplate } from "./CreateProjectTemplate";
+import { Todos } from "./Todos";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -42,21 +43,23 @@ export const AppContainer = () => {
       await request("/api/personal/create/project", "POST", {authInfo, projectName});
     }
   }
+  let [todos, setTodos]: [any, Function] = useState([]);
   const renderProjectTodos = (projectName: string) => {
-    getProjectTodos(projectName);
-    //TODO
+    getProjectTodos(projectName)
   }
   const getProjectTodos = useCallback(async (projectName: string) => {
     try {
       const dataFetched = await request(`api/personal/todos/${projectName}`, "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
       });
-      //TODO
+      setTodos(dataFetched);
     } catch (error) {
       console.log("Error", error);
     }
   }, [authInfo, request])
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} />);
+  const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
+  debugger
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
@@ -74,6 +77,9 @@ export const AppContainer = () => {
               </div>
               <CreateProjectButton showCreatePrjectTemplate={showCreatePrjectTemplate}/>
             </div>
+          </div>
+          <div className={classes.todosWrapper}>
+            {renderingProjectTodos}
           </div>
         </div>
       )}
