@@ -43,5 +43,5 @@ export interface IUserData {
 }
 export interface IPropsTodosContainer {
   title: string;
-  todos: string[];
+  todos: ITodo[];
 }

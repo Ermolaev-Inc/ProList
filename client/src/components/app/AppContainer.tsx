@@ -66,7 +66,6 @@ export const AppContainer = () => {
   }, [authInfo, request])
   debugger
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
-  //const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
