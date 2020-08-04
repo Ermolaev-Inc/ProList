@@ -41,3 +41,7 @@ export interface IUserData {
   password: string;
   personalChannel: IProject[];
 }
+export interface IPropsTodosContainer {
+  title: string;
+  todos: string[];
+}

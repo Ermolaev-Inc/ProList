@@ -52,6 +52,7 @@ export const AppContainer = () => {
   }
   const clearTodosSection = () => {
     setTodos([]);
+    setSelectedProjectName("");
   }
   const getProjectTodos = useCallback(async (projectName: string) => {
     try {
@@ -63,8 +64,9 @@ export const AppContainer = () => {
       console.log("Error", error);
     }
   }, [authInfo, request])
+  debugger
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
-  const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
+  //const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
