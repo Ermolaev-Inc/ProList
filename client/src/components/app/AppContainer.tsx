@@ -9,6 +9,7 @@ import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
 import { CreateProjectTemplate } from "./CreateProjectTemplate";
 import { Todos } from "./Todos";
+import { TodosContainer } from "./TodosContainer";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -44,8 +45,10 @@ export const AppContainer = () => {
     }
   }
   let [todos, setTodos]: [any, Function] = useState([]);
+  let [selectedProjectName, setSelectedProjectName] = useState("");
   const renderProjectTodos = (projectName: string) => {
-    getProjectTodos(projectName)
+    setSelectedProjectName(projectName);
+    getProjectTodos(projectName);
   }
   const clearTodosSection = () => {
     setTodos([]);
@@ -62,7 +65,6 @@ export const AppContainer = () => {
   }, [authInfo, request])
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
   const renderingProjectTodos = todos.map((todo: any) => <Todos todoName={todo.name} />)
-
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
@@ -82,7 +84,9 @@ export const AppContainer = () => {
             </div>
           </div>
           <div className={classes.todosWrapper}>
-            {renderingProjectTodos}
+            <div className={classes.todosContainer}>
+              <TodosContainer todos={todos} title={selectedProjectName}/>
+            </div>
           </div>
         </div>
       )}

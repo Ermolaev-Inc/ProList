@@ -70,6 +70,19 @@ input {
   display: block;
 }
 
+.wrapper .todosWrapper {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 50.3472222%;
+  border-right: 0.5px solid #C4C4C4;
+}
+
+.wrapper .todosWrapper .todosContainer {
+  width: 95.5517241%;
+  height: 100vh;
+}
+
 .wrapper .selectedProject {
   margin-left: 5px;
 }
