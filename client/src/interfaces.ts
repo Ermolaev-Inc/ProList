@@ -45,3 +45,6 @@ export interface IPropsTodosContainer {
   title: string;
   todos: ITodo[];
 }
+export interface IPropsTodos extends ITodo {
+  key: number;
+}

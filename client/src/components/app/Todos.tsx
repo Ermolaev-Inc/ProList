@@ -1,10 +1,11 @@
 import React from "react";
+import { IPropsTodos } from "../../interfaces";
 
-export const Todos = (props: any) => {
+export const Todos = (todo: IPropsTodos) => {
   
   return(
     <li>
-      {props.todoName}
+      {todo.name}
     </li>
   )
 }
