@@ -1,0 +1,21 @@
+@mixin textStyle($color, $size, $weight)
+  font-family: Roboto
+  font-style: normal
+  color: $color
+  font-size: $size
+  font-weight: $weight
+.light
+  .title
+    @include textStyle($color: #363636, $size: 24px, $weight: bold)
+    margin-top: 20px
+  .todos
+    @include textStyle($color: #363636, $size: 18px, $weight: regular)
+    margin-top: 18.5px
+
+.dark
+  .title
+    @include textStyle($color: #FFFFFF, $size: 24px, $weight: bold)
+  .todos
+    @include textStyle($color: #FFFFFF, $size: 18px, $weight: regular)
+  
+  
