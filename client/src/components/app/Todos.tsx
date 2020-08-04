@@ -16,9 +16,9 @@ export const Todos = (todo: IPropsTodos) => {
     }
   }
   return(
-    <li>
+    <li className={classes.todo}>
       <div className={identifyStatus()}></div>
-      {todo.name}
+      <span className={classes.name}>{todo.name}</span>
     </li>
   )
 }

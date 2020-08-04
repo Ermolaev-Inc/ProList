@@ -1,5 +1,21 @@
+@mixin circleStatus
+  border-radius: 100%
+  width: 18px
+  height: 18px
+  align-self: center
+.todo
+  display: flex
+  align-content: center
+  margin-top: 6px
+  .name
+    margin-left: 10px
 .completed
-
+  @include circleStatus
+  background-color: #257CFF
 .inProgress
-
+  @include circleStatus
+  border: 1px solid #257CFF
 .notStarted
+  @include circleStatus
+  background-color: #545454
+  
