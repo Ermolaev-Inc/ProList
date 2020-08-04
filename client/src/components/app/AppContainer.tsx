@@ -8,7 +8,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
 import { CreateProjectTemplate } from "./CreateProjectTemplate";
-import { Todos } from "./Todos";
 import { TodosContainer } from "./TodosContainer";
 
 export const AppContainer = () => {
@@ -86,7 +85,7 @@ export const AppContainer = () => {
           </div>
           <div className={classes.todosWrapper}>
             <div className={classes.todosContainer}>
-              <TodosContainer todos={todos} title={selectedProjectName}/>
+              <TodosContainer todos={todos} title={selectedProjectName} />
             </div>
           </div>
         </div>
