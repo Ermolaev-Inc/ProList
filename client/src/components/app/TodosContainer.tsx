@@ -6,11 +6,15 @@ import { ThemeContext, Theme } from "../../context/ThemeContext";
 
 export const TodosContainer = (props: IPropsTodosContainer) => {
   const themeContext = useContext(ThemeContext);
-  const todos = props.todos.map((todo: ITodo) => <Todos todoName={todo.name}/>)
+  const todos = props.todos.map((todo: ITodo, index: number) => <Todos todoName={todo.name} key={index} />)
   return(
     <div className={themeContext.theme === Theme.LIGHT ? classes.light : classes.dark}>
       <div className={classes.title}>{props.title}</div>
-      {todos}
+      <div className={classes.todos}>
+        <ul>
+          {todos}
+        </ul>
+      </div>
     </div>
   )
 }
