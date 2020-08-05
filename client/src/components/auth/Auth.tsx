@@ -54,6 +54,7 @@ export const Auth = () => {
       console.log("Error", error);
     }
   }
+  debugger
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
@@ -68,7 +69,7 @@ export const Auth = () => {
           <div className={classes.notify_form}>
             <div className={notificationStyles}>{notificationText}</div>
           </div>
-          <ChangeThemeButton changeTheme={changeTheme}/>
+          <ChangeThemeButton changeTheme={changeTheme} theme={theme} />
         </div>
       )}
     </ThemeContext.Consumer>

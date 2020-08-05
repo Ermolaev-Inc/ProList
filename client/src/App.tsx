@@ -10,11 +10,23 @@ function App() {
   const {login, token, userId} = useLogin();
   const isAuth = !!token;
   const routes = useRoutes(isAuth);
-  let [theme, setTheme] = useState(Theme.LIGHT);
+  const identifyTheme = (): any => {
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", Theme.LIGHT);
+      return Theme.LIGHT;
+    } else if (localStorage.getItem("theme") === Theme.LIGHT) {
+      return Theme.LIGHT;
+    } else {
+      return Theme.DARK;
+    }
+  }
+  let [theme, setTheme]: [any, Function] = useState(identifyTheme);
   let changeTheme = () => {
     if (theme === Theme.LIGHT) {
+      localStorage.setItem("theme", Theme.DARK);
       setTheme(Theme.DARK);
     } else {
+      localStorage.setItem("theme", Theme.LIGHT);
       setTheme(Theme.LIGHT);
     }
   }

@@ -1,4 +1,5 @@
 import { token, userId, login } from "./types";
+import { Theme } from "./context/ThemeContext";
 
 export interface IDataRegister { 
   message: string;
@@ -49,5 +50,6 @@ export interface IPropsTodos extends ITodo {
   key: number;
 }
 export interface IPropsChangeThemeButton {
-  changeTheme: any
+  changeTheme: any;
+  theme: Theme
 }

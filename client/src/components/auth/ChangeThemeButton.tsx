@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import classes from "./styles/ChangeThemeButton.module.css";
 import { IPropsChangeThemeButton } from "../../interfaces";
+import { ThemeContext, Theme } from "../../context/ThemeContext";
 
 export const ChangeThemeButton = (props: IPropsChangeThemeButton) => {
-  let [buttonStyle, setButtonStyle] = useState(classes.light);
+
+  let [buttonStyle, setButtonStyle] = useState(props.theme === Theme.LIGHT ? classes.light : classes.dark);
   const changeTheme = () => {
     props.changeTheme();
     if (buttonStyle === classes.light) {
