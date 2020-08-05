@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { IDataLogin, IDataRegister } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
+import { ChangeThemeButton } from "./ChangeThemeButton";
 
 export const Auth = () => {
   let [notificationStyles, setNotificationStyles] = useState(classes.failed);
@@ -67,7 +68,7 @@ export const Auth = () => {
           <div className={classes.notify_form}>
             <div className={notificationStyles}>{notificationText}</div>
           </div>
-          <div className={classes.changeThemeModeBtn} onClick={changeTheme}></div>
+          <ChangeThemeButton changeTheme={changeTheme}/>
         </div>
       )}
     </ThemeContext.Consumer>

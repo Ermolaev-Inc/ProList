@@ -48,3 +48,6 @@ export interface IPropsTodosContainer {
 export interface IPropsTodos extends ITodo {
   key: number;
 }
+export interface IPropsChangeThemeButton {
+  changeTheme: any
+}

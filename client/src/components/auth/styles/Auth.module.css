@@ -33,18 +33,6 @@ button {
   background: #ffffff;
 }
 
-.window .changeThemeModeBtn {
-  margin-top: 110px;
-  border-radius: 100%;
-  width: 31px;
-  height: 31px;
-  background: #000000;
-}
-
-.window .changeThemeModeBtn:hover {
-  box-shadow: 0px 0px 4px #3F3F3F;
-}
-
 .window .logo {
   margin-top: 40px;
 }
@@ -135,18 +123,6 @@ button {
   height: 100vh;
   align-items: center;
   background: #000000;
-}
-
-.window_dark .changeThemeModeBtn {
-  margin-top: 110px;
-  border-radius: 100%;
-  width: 31px;
-  height: 31px;
-  background: #F1F372;
-}
-
-.window_dark .changeThemeModeBtn:hover {
-  box-shadow: 0px 0px 4px #F1F372;
 }
 
 .window_dark .logo {
