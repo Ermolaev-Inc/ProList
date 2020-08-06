@@ -9,6 +9,7 @@ import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./CreateProjectButton";
 import { CreateProjectTemplate } from "./CreateProjectTemplate";
 import { TodosContainer } from "./TodosContainer";
+import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -69,9 +70,7 @@ export const AppContainer = () => {
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
-          <div className={classes.channelsWrapper}>
-            <div className={classes.default}></div>
-          </div>
+          <ChannelsContainer />
           <div className={classes.projectsWrapper}>
             <div className={classes.projectsContainer}>
               <div className={classes.projects}>
@@ -87,6 +86,7 @@ export const AppContainer = () => {
             <div className={classes.todosContainer}>
               <TodosContainer todos={todos} title={selectedProjectName} />
             </div>
+
           </div>
         </div>
       )}
