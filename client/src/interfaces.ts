@@ -51,5 +51,8 @@ export interface IPropsTodos extends ITodo {
 }
 export interface IPropsChangeThemeButton {
   changeTheme: any;
-  theme: Theme
+  theme: Theme;
+}
+export interface IPropsSettingsButton {
+  showSettings: any;
 }
