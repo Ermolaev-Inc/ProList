@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ThemeContext, Theme } from "../../context/ThemeContext";
-import addButtonLight from "./img/addButtonLight.svg";
-import addButtonDark from "./img/addButtonDark.svg";
-import classes from "./styles/AppContainer.module.css";
-import { IPropsCreateProjectButton } from "../../interfaces";
+import { ThemeContext, Theme } from "../../../context/ThemeContext";
+import addButtonLight from "../img/addButtonLight.svg";
+import addButtonDark from "../img/addButtonDark.svg";
+import classes from "../styles/AppContainer.module.css";
+import { IPropsCreateProjectButton } from "../../../interfaces";
 
 export const CreateProjectButton = (props: IPropsCreateProjectButton) => {
   const themeContext = useContext(ThemeContext);
