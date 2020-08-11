@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { IPropsTodos } from "../../interfaces";
-import classes from "./styles/Todos.module.css";
-import { Status } from "../../statuses";
+import { IPropsTodos } from "../../../interfaces";
+import classes from "../styles/Todos.module.css";
+import { Status } from "../../../statuses";
 
 export const Todos = (todo: IPropsTodos) => {
   let [statusCircle, setStatusCircle] = useState(todo.status);

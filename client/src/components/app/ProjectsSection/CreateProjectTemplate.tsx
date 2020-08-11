@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./styles/AppContainer.module.css";
-import { IPropsCreateProjectTemplate } from "../../interfaces";
+import classes from "../styles/AppContainer.module.css";
+import { IPropsCreateProjectTemplate } from "../../../interfaces";
 
 export const CreateProjectTemplate = (props: IPropsCreateProjectTemplate) => {
   return(

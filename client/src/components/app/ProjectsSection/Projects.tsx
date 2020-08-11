@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import classes from "./styles/AppContainer.module.css";
-import { IPropsProjects } from "../../interfaces";
+import classes from "../styles/AppContainer.module.css";
+import { IPropsProjects } from "../../../interfaces";
 
 export const Projects = (props: IPropsProjects) => {
   let [isSelected, setSelected]: [boolean, Function] = useState(false);

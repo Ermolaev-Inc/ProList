@@ -2,14 +2,14 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
-import { Projects } from "./Projects";
+import { Projects } from "./ProjectsSection/Projects";
 import { IAuthContext, IUserData, IProject, ITodo } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
-import { CreateProjectButton } from "./CreateProjectButton";
-import { CreateProjectTemplate } from "./CreateProjectTemplate";
-import { TodosContainer } from "./TodosContainer";
-import { ChannelsContainer } from "./ChannelsContainer";
+import { CreateProjectButton } from "./ProjectsSection/CreateProjectButton";
+import { CreateProjectTemplate } from "./ProjectsSection/CreateProjectTemplate";
+import { TodosContainer } from "./TodosSection/TodosContainer";
+import { ChannelsContainer } from "./ChannelsSection/ChannelsContainer";
 
 export const AppContainer = () => {
   const request: Function = useHttp();
@@ -64,7 +64,6 @@ export const AppContainer = () => {
       console.log("Error", error);
     }
   }, [authInfo, request])
-  debugger
   const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
   return(
     <ThemeContext.Consumer>

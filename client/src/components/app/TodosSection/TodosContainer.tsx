@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import classes from "./styles/TodosContainer.module.css";
-import { IPropsTodosContainer, ITodo } from "../../interfaces";
+import classes from "../styles/TodosContainer.module.css";
+import { IPropsTodosContainer, ITodo } from "../../../interfaces";
 import { Todos } from "./Todos";
-import { ThemeContext, Theme } from "../../context/ThemeContext";
+import { ThemeContext, Theme } from "../../../context/ThemeContext";
 
 export const TodosContainer = (props: IPropsTodosContainer) => {
   const themeContext = useContext(ThemeContext);
