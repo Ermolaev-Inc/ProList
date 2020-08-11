@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { User } from "../models/User";
+import { Channel } from "../models/Channel";
 const router = Router();
 
 interface IUserData {
@@ -18,6 +19,19 @@ router.post(
         return res.status(400).json({ message: "This user does not exis" });
       }
       res.status(201).json({ message: "Success" });
+    } catch (error) {
+      res.status(500).json({ message: "Something is wrong :(" });
+    }
+  }
+)
+
+router.post(
+  "/create",
+  async (req: any, res: any) => {
+    try {
+      //TODO
+      //const channel = new Channel({  });
+      //await channel.save();
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
     }
