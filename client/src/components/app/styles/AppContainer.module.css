@@ -125,9 +125,7 @@ input {
 
 .wrapperDark .projectsWrapper .projectsContainer {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
+  display: grid;
   margin-left: 21px;
   margin-top: 10px;
 }
@@ -196,4 +194,21 @@ input {
 
 .wrapperDark .notSelectedProject .contextMenu {
   text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.wrapperDark .projectInput {
+  height: 44px;
+  width: 80%;
+  background-color: #000000;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  user-select: none;
+  color: #ffffff;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
 }
