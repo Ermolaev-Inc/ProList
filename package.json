@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ErmolaevID/ProList.git"
+    "url": "git+https://github.com/Ermolaev-Inc/ProList"
   },
   "author": "Ermolaev Ilya <Ermolaev.ID@yandex.ru>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ErmolaevID/ProList/issues"
+    "url": "https://github.com/Ermolaev-Inc/ProList/issues"
   },
-  "homepage": "https://github.com/ErmolaevID/ProList#readme",
+  "homepage": "https://github.com/Ermolaev-Inc/ProList#readme",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.5.0",
