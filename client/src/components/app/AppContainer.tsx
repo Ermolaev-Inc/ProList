@@ -42,6 +42,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
       await request("/api/personal/create/project", "POST", {authInfo, projectName});
+      window.location.reload();
     }
   }
   let [todos, setTodos]: [any, Function] = useState([]);
