@@ -54,9 +54,12 @@ export interface IPropsChangeThemeButton {
   theme: Theme;
 }
 export interface IPropsAppContainer {
-  showSettings: any
+  showSettings: any;
 }
 export interface IPropsChannelsContainer extends IPropsAppContainer {
 }
 export interface IPropsSettingsButton extends IPropsChannelsContainer {
+}
+export interface IPropsSettingsContainer {
+  closeSettings: any;
 }

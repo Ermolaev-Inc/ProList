@@ -9,12 +9,15 @@ export const useRoutes = (isAuth: boolean) => {
   const showSettings = (): void => {
     setSettings(true);
   }
+  const closeSettings = (): void => {
+    setSettings(false);
+  }
   if (isAuth) {
     return(
       <Switch>
         <Route path="/" >
-          {!isSettings && <AppContainer showSettings={setSettings}/>}
-          {isSettings && <SettingsContainer />}
+          {!isSettings && <AppContainer showSettings={showSettings}/>}
+          {isSettings && <SettingsContainer closeSettings={closeSettings} />}
         </Route>
       </Switch>
     )

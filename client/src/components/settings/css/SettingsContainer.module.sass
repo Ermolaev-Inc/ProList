@@ -1,0 +1,38 @@
+@mixin text($fontSize, $color, $weight)
+  font-family: Roboto
+  font-style: normal
+  font-weight: $weight
+  font-size: $fontSize
+  color: $color
+@mixin border($color)
+  border-right: 0.5px solid $color
+  
+.wrapper
+  @include text(24px, #363636, 500)
+  height: 100vh
+  .titlesSectionWrapper
+    border-right: 0.5px solid #C4C4C4
+.wrapperDark
+  @include text(24px, #ffffff, 500)
+  background-color: #000000
+  background-size: contain
+  height: 100vh
+  .titlesSectionWrapper
+    border-right: 0.5px solid #545454
+.titlesSectionWrapper
+  width: 24.739583333%
+  height: 100vh
+  .titlesSection
+    display: inline-flex
+    flex-direction: column
+    margin-left: 9.473684211%
+    margin-top: 5.857142857%
+    span
+      margin-bottom: 20px
+      display: inline-block
+      cursor: pointer
+.closeButton
+  position: absolute
+  top: 10px
+  right: 20px
+      

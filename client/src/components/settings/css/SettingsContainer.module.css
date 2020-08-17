@@ -1,0 +1,51 @@
+.wrapper {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #363636;
+  height: 100vh;
+}
+
+.wrapper .titlesSectionWrapper {
+  border-right: 0.5px solid #C4C4C4;
+}
+
+.wrapperDark {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #000000;
+  background-size: contain;
+  height: 100vh;
+}
+
+.wrapperDark .titlesSectionWrapper {
+  border-right: 0.5px solid #545454;
+}
+
+.titlesSectionWrapper {
+  width: 24.739583333%;
+  height: 100vh;
+}
+
+.titlesSectionWrapper .titlesSection {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 9.473684211%;
+  margin-top: 5.857142857%;
+}
+
+.titlesSectionWrapper .titlesSection span {
+  margin-bottom: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
