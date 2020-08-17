@@ -13,7 +13,7 @@ export const useRoutes = (isAuth: boolean) => {
     return(
       <Switch>
         <Route path="/" >
-          <AppContainer showSettings={setSettings}/>
+          {!isSettings && <AppContainer showSettings={setSettings}/>}
           {isSettings && <SettingsContainer />}
         </Route>
       </Switch>
