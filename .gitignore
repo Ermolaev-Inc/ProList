@@ -6,7 +6,7 @@
 .DS_Store
 *.js
 config
-
+.idea
 # User-specific files
 *.rsuser
 *.suo
