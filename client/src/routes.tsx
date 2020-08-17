@@ -5,8 +5,8 @@ import { AppContainer } from "./components/app/AppContainer";
 import { SettingsContainer } from "./components/settings/SettingsContainer";
 
 export const useRoutes = (isAuth: boolean) => {
-  let [isSettings, setSettings] = useState(false);
-  const showSettings = () => {
+  let [isSettings, setSettings]: [boolean, Function] = useState(false);
+  const showSettings = (): void => {
     setSettings(true);
   }
   if (isAuth) {
