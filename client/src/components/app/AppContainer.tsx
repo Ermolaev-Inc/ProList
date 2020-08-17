@@ -3,7 +3,7 @@ import { useHttp } from "../../hooks/http.hook";
 import classes from "./styles/AppContainer.module.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./ProjectsSection/Projects";
-import { IAuthContext, IUserData, IProject, ITodo } from "../../interfaces";
+import { IAuthContext, IUserData, IProject, IPropsAppContainer } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./ProjectsSection/CreateProjectButton";
@@ -11,7 +11,7 @@ import { CreateProjectTemplate } from "./ProjectsSection/CreateProjectTemplate";
 import { TodosContainer } from "./TodosSection/TodosContainer";
 import { ChannelsContainer } from "./ChannelsSection/ChannelsContainer";
 
-export const AppContainer = () => {
+export const AppContainer = (props: IPropsAppContainer) => {
   const request: Function = useHttp();
   const authInfo: IAuthContext = useContext(AuthContext);
   let [userPersonalProjectsData, setUserPersonalProjectsData]: [IProject[] | undefined, Function] = useState(undefined);
@@ -69,7 +69,7 @@ export const AppContainer = () => {
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
-          <ChannelsContainer />
+          <ChannelsContainer showSettings={props.showSettings}/>
           <div className={classes.projectsWrapper}>
             <div className={classes.projectsContainer}>
               <div className={classes.projects}>

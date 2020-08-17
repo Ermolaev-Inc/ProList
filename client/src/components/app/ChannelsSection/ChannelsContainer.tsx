@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import classes from "../styles/ChannelsContainer.module.css";
 import { ThemeContext, Theme } from "../../../context/ThemeContext";
 import { useHttp } from "../../../hooks/http.hook";
+import { SettingsButton } from "../../settings/SettingsButton";
+import { IPropsChannelsContainer } from "../../../interfaces";
 
-export const ChannelsContainer = () => {
+export const ChannelsContainer = (props: IPropsChannelsContainer) => {
   const request: Function = useHttp();
   const themeContext = useContext(ThemeContext);
   const theme = themeContext.theme;
@@ -18,6 +20,7 @@ export const ChannelsContainer = () => {
   return(
     <div className={theme === Theme.LIGHT ? classes.channelsWrapper : classes.channelsWrapperDark}>
       <div className={classes.default}></div>
+      <SettingsButton showSettings={props.showSettings}/>
     </div>
   )
 }
