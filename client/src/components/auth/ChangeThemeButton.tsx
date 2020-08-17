@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./styles/ChangeThemeButton.module.css";
+import classes from "./css/ChangeThemeButton.module.css";
 import { IPropsChangeThemeButton } from "../../interfaces";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
-import classes from "./styles/Auth.module.css";
+import classes from "./css/Auth.module.css";
 import logo from "./img/logo.svg";
 import { login, password } from "../../types";
 import { AuthContext } from "../../context/AuthContext";
