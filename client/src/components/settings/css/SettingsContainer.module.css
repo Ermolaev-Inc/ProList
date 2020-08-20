@@ -29,15 +29,14 @@
 }
 
 .titlesSectionWrapper {
-  width: 24.739583333%;
-  height: 100vh;
+  width: 17%;
 }
 
 .titlesSectionWrapper .titlesSection {
   display: inline-flex;
   flex-direction: column;
-  margin-left: 9.473684211%;
-  margin-top: 5.857142857%;
+  margin-left: 2.3%;
+  margin-top: 5.9%;
 }
 
 .titlesSectionWrapper .titlesSection span {
