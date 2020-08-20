@@ -4,7 +4,9 @@
   font-weight: 500;
   font-size: 24px;
   color: #363636;
+  background-color: #ffffff;
   height: 100vh;
+  display: flex;
 }
 
 .wrapper .titlesSectionWrapper {
@@ -18,8 +20,8 @@
   font-size: 24px;
   color: #ffffff;
   background-color: #000000;
-  background-size: contain;
   height: 100vh;
+  display: flex;
 }
 
 .wrapperDark .titlesSectionWrapper {

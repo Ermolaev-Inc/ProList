@@ -9,16 +9,20 @@
   
 .wrapper
   @include text(24px, #363636, 500)
+  background-color: #ffffff
   height: 100vh
+  display: flex
   .titlesSectionWrapper
     border-right: 0.5px solid #C4C4C4
 .wrapperDark
   @include text(24px, #ffffff, 500)
   background-color: #000000
-  background-size: contain
   height: 100vh
+  display: flex
   .titlesSectionWrapper
     border-right: 0.5px solid #545454
+
+
 .titlesSectionWrapper
   width: 24.739583333%
   height: 100vh
@@ -32,6 +36,7 @@
       display: inline-block
       cursor: pointer
       user-select: none
+      
 .closeButton
   position: absolute
   top: 10px

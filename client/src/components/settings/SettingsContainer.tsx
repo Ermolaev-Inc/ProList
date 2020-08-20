@@ -13,7 +13,7 @@ export const SettingsContainer = (props: IPropsSettingsContainer) => {
   const changeTheme = themeContext.changeTheme;
   const {logout} = useLogout();
   let [isChannelTemplate, setChannelTemplate] = useState(false);
-  const showCreateChannelTemplate = () => {
+  const showCreateChannelTemplate = (): void => {
     setChannelTemplate(true);
   }
   return(
