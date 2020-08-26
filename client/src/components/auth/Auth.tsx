@@ -10,33 +10,20 @@ import { Theme } from "../../context/ThemeContext";
 import { ChangeThemeButton } from "./ChangeThemeButton";
 
 export const Auth = () => {
+  const request: Function = useHttp();
   let [notificationStyles, setNotificationStyles] = useState(classes.failed);
   let [notificationText, setNotificationText] = useState("");
-  const checkSuccessAuth = (successfully: boolean) => {
-    if (!successfully) {
-      notifyUserAboutFailed(true);
-    }
-  }
-  const notifyUserAboutFailed = (failed: boolean) => {
-    if (failed) {
-      setNotificationText("Failed");
-      setNotificationStyles(classes.failed);
-      setTimeout(() => {
-        setNotificationText("");
-        setNotificationStyles(classes.failed);
-      }, 3000)
-    }
-  }
-  const auth = useContext(AuthContext);
   const [login, setLogin]: [login, Function] = useState();
   const [password, setPassword]: [password, Function] = useState();
+  const auth = useContext(AuthContext);
+
   const loginInputHandler = (event: any) => {
     setLogin(event.target.value);
   }
   const passwordInputHandler = (event: any) => {
     setPassword(event.target.value);
   }
-  const request: Function = useHttp();
+
   const registerHandler = async () => {
     try {
       const data: IDataRegister = await request("/api/auth/register", "POST", {login, password});
@@ -54,7 +41,23 @@ export const Auth = () => {
       console.log("Error", error);
     }
   }
-  debugger
+
+  const checkSuccessAuth = (successfully: boolean) => {
+    if (!successfully) {
+      notifyUserAboutFailed(true);
+    }
+  }
+  const notifyUserAboutFailed = (failed: boolean) => {
+    if (failed) {
+      setNotificationText("Failed");
+      setNotificationStyles(classes.failed);
+      setTimeout(() => {
+        setNotificationText("");
+        setNotificationStyles(classes.failed);
+      }, 3000)
+    }
+  }
+
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
