@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "../styles/AppContainer.module.css";
+import classes from "../sass/AppContainer.module.sass";
 import { IPropsProjects } from "../../../interfaces";
 
 export const Projects = (props: IPropsProjects) => {

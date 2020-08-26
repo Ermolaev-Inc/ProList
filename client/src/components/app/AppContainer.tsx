@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
-import classes from "./styles/AppContainer.module.css";
+import classes from "./sass/AppContainer.module.sass";
 import { AuthContext } from "../../context/AuthContext";
 import { Projects } from "./ProjectsSection/Projects";
 import { IAuthContext, IUserData, IProject, IPropsAppContainer } from "../../interfaces";

@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../styles/AppContainer.module.css";
+import classes from "../sass/AppContainer.module.sass";
 import { IPropsCreateProjectTemplate } from "../../../interfaces";
 
 export const CreateProjectTemplate = (props: IPropsCreateProjectTemplate) => {

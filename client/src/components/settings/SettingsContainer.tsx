@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import classes from "./css/SettingsContainer.module.css";
+import classes from "./sass/SettingsContainer.module.sass";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
 import closeButtonLight from "./img/closeButtonLight.svg";
 import closeButtonDark from "./img/closeButtonDark.svg";

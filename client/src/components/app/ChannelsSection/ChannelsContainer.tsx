@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import classes from "../styles/ChannelsContainer.module.css";
+import classes from "../sass/ChannelsContainer.module.sass";
 import { ThemeContext, Theme } from "../../../context/ThemeContext";
 import { useHttp } from "../../../hooks/http.hook";
 import { SettingsButton } from "./SettingsButton";

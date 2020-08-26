@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IPropsTodos } from "../../../interfaces";
-import classes from "../styles/Todos.module.css";
+import classes from "../sass/Todos.module.sass";
 import { Status } from "../../../statuses";
 
 export const Todos = (todo: IPropsTodos) => {
