@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import classes from "../styles/TodosContainer.module.css";
+import classes from "../sass/TodosContainer.module.sass";
 import { IPropsTodosContainer, ITodo } from "../../../interfaces";
 import { Todos } from "./Todos";
 import { ThemeContext, Theme } from "../../../context/ThemeContext";
