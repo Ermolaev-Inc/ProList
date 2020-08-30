@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
-import { Auth } from "./components/auth/Auth";
-import { AppContainer } from "./components/app/AppContainer";
-import { SettingsContainer } from "./components/settings/SettingsContainer";
+import { Auth } from "./pages/auth/Auth";
+import { AppContainer } from "./pages/app/AppContainer";
+import { SettingsContainer } from "./pages/settings/SettingsContainer";
 
 export const useRoutes = (isAuth: boolean) => {
   let [isSettings, setSettings]: [boolean, Function] = useState(false);
