@@ -4,4 +4,5 @@ export interface NeonButtonProps {
   fontWeight?: string | number;
   fontSize?: string;
   onClick?(args: any): void;
+  [name: string]: any;
 } 
