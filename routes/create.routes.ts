@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { User } from "../models/User";
 import { Channel } from "../models/Channel";
+import bcrypt from "bcryptjs";
 const router = Router();
 
 interface IUserData {
@@ -29,9 +30,11 @@ router.post(
   "/create",
   async (req: any, res: any) => {
     try {
-      //TODO
-      //const channel = new Channel({  });
-      //await channel.save();
+      const { channelName, password } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 12); 
+      const newChannel = new Channel({channelName, password: hashedPassword});
+      await newChannel.save();
+      res.status(201).json({ message: "Success" })
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
     }
