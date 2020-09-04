@@ -4,10 +4,12 @@
   font-weight: $weight
   font-size: $size
   color: $color
+
 .light
   .channelName
     display: block
     @include text(24px, #363636, 300)
+    background-color: #ffffff
     border-top: 0px
     border-left: 0px
     border-right: 0px
@@ -15,5 +17,23 @@
     padding-bottom: 2px
     margin-top: 7.7%
     margin-left: 5%
+  .createButton
+    margin-top: 40px
+    margin-left: 20px
+
 .dark
-  //TODO
+  .channelName
+    display: block
+    @include text(24px, #FFFFFF, 300)
+    background-color: #000000
+    border-top: 0px
+    border-left: 0px
+    border-right: 0px
+    border-bottom-width: 1px;
+    padding-bottom: 2px
+    margin-top: 7.7%
+    margin-left: 5%
+  .createButton
+    margin-top: 40px
+    margin-left: 20px
+    
