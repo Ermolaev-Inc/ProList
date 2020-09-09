@@ -3,5 +3,5 @@ export const useLogout = () => {
     localStorage.removeItem("userData");
     window.location.reload();
   }
-  return { logout }
+  return logout;
 }
