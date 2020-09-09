@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import s from "./sass/SettingsContainer.module.sass";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
-import closeButtonLight from "./img/closeButtonLight.svg";
-import closeButtonDark from "./img/closeButtonDark.svg";
 import { IPropsSettingsContainer } from "../../interfaces";
 import { useLogout } from "../../hooks/logout.hook";
 import { CreateChannelTemplate } from "./CreateChannelTemplate";
+import { CloseButton } from "../../components/CloseButton/CloseButton";
 
 export const SettingsContainer = (props: IPropsSettingsContainer) => {
   const themeContext = useContext(ThemeContext);
@@ -26,7 +25,7 @@ export const SettingsContainer = (props: IPropsSettingsContainer) => {
         </div>
       </div>
       {isChannelTemplate && <CreateChannelTemplate />}
-      <img className={s.closeButton} src={themeContext.theme === Theme.LIGHT ? closeButtonLight : closeButtonDark} alt="" onClick={props.closeSettings} />
+      <CloseButton color={themeContext.theme === Theme.LIGHT ? "#C4C4C4" : "#545454"} className={s.closeButton} onClick={props.closeSettings} />
     </div>
   )
 }
