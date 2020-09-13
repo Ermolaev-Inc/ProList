@@ -9,7 +9,7 @@ import { Theme } from "../../context/ThemeContext";
 import { CreateProjectButton } from "./ProjectsSection/CreateProjectButton";
 import { CreateProjectTemplate } from "./ProjectsSection/CreateProjectTemplate";
 import { TodosContainer } from "./TodosSection/TodosContainer";
-import { ChannelsContainer } from "./ChannelsSection/ChannelsContainer";
+import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer = (props: IPropsAppContainer) => {
   const request: Function = useHttp();
