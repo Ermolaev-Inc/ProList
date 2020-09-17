@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import s from "./sass/CreateChannelTemplate.module.sass";
-import { ThemeContext, Theme } from "../../context/ThemeContext";
-import { NeonButton } from "../../components/NeonButton/NeonButton";
-import { useHttp } from "../../hooks/http.hook";
+import s from "./CreateChannelTemplate.module.sass";
+import { ThemeContext, Theme } from "../context/ThemeContext";
+import { NeonButton } from "../components/NeonButton/NeonButton";
+import { useHttp } from "../hooks/http.hook";
 
 export const CreateChannelTemplate = () => {
   const request: Function = useHttp();

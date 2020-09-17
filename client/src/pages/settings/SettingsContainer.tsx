@@ -3,7 +3,7 @@ import s from "./sass/SettingsContainer.module.sass";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
 import { IPropsSettingsContainer } from "../../interfaces";
 import { useLogout } from "../../hooks/logout.hook";
-import { CreateChannelTemplate } from "./CreateChannelTemplate";
+import { CreateChannelTemplate } from "../../templates/CreateChannelTemplate";
 import { CloseButton } from "../../components/CloseButton/CloseButton";
 
 export const SettingsContainer = (props: IPropsSettingsContainer) => {

@@ -5,7 +5,7 @@ import { Project } from "./Project";
 import { IUserData, IAuthContext, IProjectsContainerProps, IProject } from "../../interfaces";
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
-import { CreateProjectTemplate } from "./CreateProjectTemplate";
+import { CreateProjectTemplate } from "../../templates/CreateProjectTemplate";
 
 export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCurrentProject }) => {
   const request = useHttp();
