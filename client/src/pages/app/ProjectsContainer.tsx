@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import { AddButton } from "../../components/AddButton/AddButton";
 import s from "./sass/AppContainer.module.sass";
-import { Project } from "./ProjectsSection/Project";
+import { Project } from "./Project";
 import { IUserData, IAuthContext, IProjectsContainerProps, IProject } from "../../interfaces";
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
-import { CreateProjectTemplate } from "./ProjectsSection/CreateProjectTemplate";
+import { CreateProjectTemplate } from "./CreateProjectTemplate";
 
 export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCurrentProject }) => {
   const request = useHttp();

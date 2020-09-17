@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import s from "./sass/TodosContainer.module.sass";
 import { ITodosContainerProps, ITodo, IAuthContext } from "../../interfaces";
-import { Todos } from "./TodosSection/Todos";
+import { Todos } from "./Todos";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";

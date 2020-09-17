@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import s from "../sass/AppContainer.module.sass";
-import { IProjectProps } from "../../../interfaces";
+import s from "./sass/AppContainer.module.sass";
+import { IProjectProps } from "../../interfaces";
 
 export const Project: React.FC<IProjectProps> = ({ 
   projectName,

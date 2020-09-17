@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ITodo } from "../../../interfaces";
-import s from "../sass/Todos.module.sass";
-import { Status } from "../../../statuses";
+import { ITodo } from "../../interfaces";
+import s from "./sass/Todos.module.sass";
+import { Status } from "../../statuses";
 
 export const Todos: React.FC<ITodo> = ({
   name,
