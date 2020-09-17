@@ -2,42 +2,30 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import classes from "./sass/AppContainer.module.sass";
 import { AuthContext } from "../../context/AuthContext";
-import { Projects } from "./ProjectsSection/Projects";
 import { IAuthContext, IUserData, IProject, IPropsAppContainer } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
-import { CreateProjectButton } from "./ProjectsSection/CreateProjectButton";
-import { CreateProjectTemplate } from "./ProjectsSection/CreateProjectTemplate";
+import { ProjectsContainer } from "./ProjectsContainer";
 import { TodosContainer } from "./TodosSection/TodosContainer";
 import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer = (props: IPropsAppContainer) => {
   const request: Function = useHttp();
   const authInfo: IAuthContext = useContext(AuthContext);
-  let [userPersonalProjectsData, setUserPersonalProjectsData]: [IProject[] | undefined, Function] = useState(undefined);
-  let [projects, setProjects]: [string[], Function] = useState([]);
-  const getUserData = useCallback(async (): Promise<void> => {
-    try {
-      const dataFetched: IUserData = await request("/api/personal/data", "GET", null, {
-        Authorization: `Bearer ${authInfo.token}`
-      });
-      setUserPersonalProjectsData(dataFetched.personalChannel);
-    } catch (error) {
-      console.log("Error", error);
-    }
-  }, [authInfo, request])
-  useEffect(() => {
-    getUserData();
-  }, [fetch])
-  useEffect(() => {
-    if (userPersonalProjectsData !== undefined) {
-      userPersonalProjectsData.map(project => setProjects((projects: IProject[]) => [...projects, project.projectName]));
-    }
-  }, [userPersonalProjectsData, setProjects])
-  let [isProjectCreating, setProjectCreating]: [boolean, Function] = useState(false);
-  const showCreatePrjectTemplate = (): void => {
-    setProjectCreating(true);
+  
+  const [currentChannel, setCurrentChannel]: [string, Function] = useState("personalChannel");
+  const [currentProject, setCurrentProject]: [string | null, Function] = useState(null);
+
+  const changeCurrentChannel = () => {
+    // TODO
   }
+  const changeCurrentProject = (projectName: string): void => {
+    setCurrentProject(projectName);
+  }
+
+
+
+  
   const createProject = async (event: any): Promise<void> => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
@@ -45,6 +33,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
       window.location.reload();
     }
   }
+ 
   let [todos, setTodos]: [any, Function] = useState([]);
   let [selectedProjectName, setSelectedProjectName] = useState("");
   const renderProjectTodos = (projectName: string) => {
@@ -65,28 +54,16 @@ export const AppContainer = (props: IPropsAppContainer) => {
       console.log("Error", error);
     }
   }, [authInfo, request])
-  const renderingProjects = projects.map((projectName: string, index: number) => <Projects projectName={projectName} key={index} renderProjectTodos={renderProjectTodos} clearTodosSection={clearTodosSection} />);
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
           <ChannelsContainer showSettings={props.showSettings}/>
-          <div className={classes.projectsWrapper}>
-            <div className={classes.projectsContainer}>
-              <div className={classes.projects}>
-                <ul>
-                  {renderingProjects}
-                  {isProjectCreating && <CreateProjectTemplate createProject={createProject} />} 
-                </ul>
-              </div>
-              <CreateProjectButton showCreatePrjectTemplate={showCreatePrjectTemplate}/>
-            </div>
-          </div>
+          <ProjectsContainer changeCurrentProject={changeCurrentProject}/>
           <div className={classes.todosWrapper}>
             <div className={classes.todosContainer}>
               <TodosContainer todos={todos} title={selectedProjectName} />
             </div>
-
           </div>
         </div>
       )}

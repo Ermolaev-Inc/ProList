@@ -9,12 +9,6 @@ export interface IDataLogin extends IDataRegister {
   token: string;
   userId: string;
 }
-export interface IPropsProjects {
-  projectName: string;
-  key: number;
-  renderProjectTodos: Function;
-  clearTodosSection: Function;
-}
 export interface IPropsCreateProjectButton {
   showCreatePrjectTemplate: any;
 }
@@ -24,18 +18,8 @@ export interface IPropsCreateProjectTemplate {
 export interface IAuthContext {
   token: token;
   userId: userId;
-  login: Function;
+  login(jwtToken: string, id: string): void;
   isAuth: boolean;
-}
-export interface IProject {
-  projectName: string;
-  projectContent: ITodo[]
-}
-export interface ITodo {
-  name: string;
-  description: string;
-  status: string;
-  timeInProgress: number;
 }
 export interface IUserData {
   login: string;
@@ -62,4 +46,25 @@ export interface IPropsSettingsButton extends IPropsChannelsContainer {
 }
 export interface IPropsSettingsContainer {
   closeSettings: any;
+}
+
+
+export interface IProject {
+  projectName: string;
+  projectContent: ITodo[]
+}
+
+export interface ITodo {
+  name: string;
+  description: string;
+  status: string;
+  timeInProgress: number;
+}
+
+export interface IProjectsContainerProps {
+  changeCurrentProject(projectName: string): void;
+}
+
+export interface IProjectProps extends IProjectsContainerProps {
+  projectName: string;
 }
