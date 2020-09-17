@@ -10,50 +10,18 @@ import { TodosContainer } from "./TodosSection/TodosContainer";
 import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer = (props: IPropsAppContainer) => {
-  const request: Function = useHttp();
   const authInfo: IAuthContext = useContext(AuthContext);
   
   const [currentChannel, setCurrentChannel]: [string, Function] = useState("personalChannel");
-  const [currentProject, setCurrentProject]: [string | null, Function] = useState(null);
-
   const changeCurrentChannel = () => {
     // TODO
   }
+
+  const [currentProject, setCurrentProject]: [string | null, Function] = useState(null);
   const changeCurrentProject = (projectName: string): void => {
     setCurrentProject(projectName);
   }
-
-
-
   
-  const createProject = async (event: any): Promise<void> => {
-    if (event.key === "Enter") {
-      const projectName: string = event.target.value;
-      await request("/api/personal/create/project", "POST", {authInfo, projectName});
-      window.location.reload();
-    }
-  }
- 
-  let [todos, setTodos]: [any, Function] = useState([]);
-  let [selectedProjectName, setSelectedProjectName] = useState("");
-  const renderProjectTodos = (projectName: string) => {
-    setSelectedProjectName(projectName);
-    getProjectTodos(projectName);
-  }
-  const clearTodosSection = () => {
-    setTodos([]);
-    setSelectedProjectName("");
-  }
-  const getProjectTodos = useCallback(async (projectName: string) => {
-    try {
-      const dataFetched = await request(`api/personal/todos/${projectName}`, "GET", null, {
-        Authorization: `Bearer ${authInfo.token}`
-      });
-      setTodos(dataFetched);
-    } catch (error) {
-      console.log("Error", error);
-    }
-  }, [authInfo, request])
   return(
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
@@ -62,7 +30,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
           <ProjectsContainer changeCurrentProject={changeCurrentProject}/>
           <div className={classes.todosWrapper}>
             <div className={classes.todosContainer}>
-              <TodosContainer todos={todos} title={selectedProjectName} />
+
             </div>
           </div>
         </div>
