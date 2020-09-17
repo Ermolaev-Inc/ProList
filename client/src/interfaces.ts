@@ -26,13 +26,7 @@ export interface IUserData {
   password: string;
   personalChannel: IProject[];
 }
-export interface IPropsTodosContainer {
-  title: string;
-  todos: ITodo[];
-}
-export interface IPropsTodos extends ITodo {
-  key: number;
-}
+
 export interface IPropsChangeThemeButton {
   changeTheme: any;
   theme: Theme;
@@ -66,5 +60,9 @@ export interface IProjectsContainerProps {
 }
 
 export interface IProjectProps extends IProjectsContainerProps {
+  projectName: string;
+}
+
+export interface ITodosContainerProps {
   projectName: string;
 }

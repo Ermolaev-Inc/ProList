@@ -8,8 +8,13 @@ export const Project: React.FC<IProjectProps> = ({
 }) => {
   const [isSelected, setSelected]: [boolean, Function] = useState(false);
   const selectProject = (): void => {
+    // TODO: Refactor
     setSelected(!isSelected);
-    changeCurrentProject(projectName);
+    if (!isSelected) {
+      changeCurrentProject(projectName);
+    } else {
+      changeCurrentProject("");
+    }
   }
 
   const [isContextMenu, setContextMenu]: [boolean, Function] = useState(false);

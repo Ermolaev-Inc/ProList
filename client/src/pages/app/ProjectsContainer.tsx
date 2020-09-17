@@ -42,8 +42,8 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCur
       <div className={s.projectsContainer}>
         <div className={s.projects}>
           <ul>
-             { projects.map((project: IProject, index: number) => <Project projectName={project.projectName} key={index} changeCurrentProject={changeCurrentProject} />) }
-             { isProjectCreating && <CreateProjectTemplate createProject={createProject} /> }
+            { projects.map((project: IProject, index: number) => <Project projectName={project.projectName} key={index} changeCurrentProject={changeCurrentProject} />) }
+            { isProjectCreating && <CreateProjectTemplate createProject={createProject} /> }
           </ul>
         </div>
         <div className={s.addButtonWrapper}>

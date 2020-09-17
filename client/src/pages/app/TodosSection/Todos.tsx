@@ -1,26 +1,33 @@
 import React, { useState } from "react";
-import { IPropsTodos } from "../../../interfaces";
-import classes from "../sass/Todos.module.sass";
+import { ITodo } from "../../../interfaces";
+import s from "../sass/Todos.module.sass";
 import { Status } from "../../../statuses";
 
-export const Todos = (todo: IPropsTodos) => {
-  let [statusCircle, setStatusCircle] = useState(todo.status);
+export const Todos: React.FC<ITodo> = ({
+  name,
+  description,
+  status,
+  timeInProgress
+}) => {
+  let [statusCircle, setStatusCircle] = useState(status);
+
   const identifyStatus = (): string => {
     switch (statusCircle) {
       case Status.COMPLETED:
-        return classes.completed;
+        return s.completed;
       case Status.IN_PROGRESS:
-        return classes.inProgress;
+        return s.inProgress;
       case Status.NOT_STARTED:
-        return classes.notStarted;
+        return s.notStarted;
       default:
-        return "Error";
+        throw Error("Todo has not status");
     }
   }
+
   return(
-    <li className={classes.todo}>
+    <li className={s.todo}>
       <div className={identifyStatus()}></div>
-      <span className={classes.name}>{todo.name}</span>
+      <span className={s.name}>{name}</span>
     </li>
   )
 }

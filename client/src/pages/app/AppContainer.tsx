@@ -6,7 +6,7 @@ import { IAuthContext, IUserData, IProject, IPropsAppContainer } from "../../int
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { ProjectsContainer } from "./ProjectsContainer";
-import { TodosContainer } from "./TodosSection/TodosContainer";
+import { TodosContainer } from "./TodosContainer";
 import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer = (props: IPropsAppContainer) => {
@@ -17,7 +17,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
     // TODO
   }
 
-  const [currentProject, setCurrentProject]: [string | null, Function] = useState(null);
+  const [currentProject, setCurrentProject]: [string, Function] = useState("");
   const changeCurrentProject = (projectName: string): void => {
     setCurrentProject(projectName);
   }
@@ -28,11 +28,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
         <div className={theme === Theme.LIGHT ? classes.wrapper : classes.wrapperDark}>
           <ChannelsContainer showSettings={props.showSettings}/>
           <ProjectsContainer changeCurrentProject={changeCurrentProject}/>
-          <div className={classes.todosWrapper}>
-            <div className={classes.todosContainer}>
-
-            </div>
-          </div>
+          <TodosContainer projectName={currentProject}/>
         </div>
       )}
     </ThemeContext.Consumer>
