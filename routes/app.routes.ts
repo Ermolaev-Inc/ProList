@@ -38,4 +38,11 @@ router.get(
   }
 )
 
+router.get(
+  "/todos/",
+  async (req: any, res: any) => {
+    res.status(200);
+  }
+)
+
 module.exports = router;

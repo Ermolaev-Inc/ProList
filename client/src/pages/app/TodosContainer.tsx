@@ -19,7 +19,6 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({ projectName }) 
         Authorization: `Bearer ${authInfo.token}`	
       });	
       setTodos(fetchedData);
-      console.log(fetchedData);
     } catch (error) {
       console.log("Error", error);
     }
