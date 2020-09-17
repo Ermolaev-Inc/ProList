@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "../sass/AppContainer.module.sass";
+import s from "../sass/AppContainer.module.sass";
 import { IProjectProps } from "../../../interfaces";
 
 export const Project: React.FC<IProjectProps> = ({ 
@@ -20,11 +20,11 @@ export const Project: React.FC<IProjectProps> = ({
   }
 
   return(
-    <div className={classes.project}>
-      <div className={isSelected ? classes.selectedForm : classes.notSelectedForm}>
+    <div className={s.project}>
+      <div className={isSelected ? s.selectedForm : s.notSelectedForm}>
         <li onContextMenu={showContextMenu} 
-            className={isSelected ? classes.selectedProject : classes.notSelectedProject}>
-              <span onClick={() => { selectProject() }} className={isContextMenu ? classes.contextMenu : ""}>{projectName}</span>
+            className={isSelected ? s.selectedProject : s.notSelectedProject}>
+              <span onClick={() => { selectProject() }} className={isContextMenu ? s.contextMenu : ""}>{projectName}</span>
         </li>
       </div>
     </div>
