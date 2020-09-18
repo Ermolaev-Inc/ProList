@@ -7,3 +7,4 @@
 - [x] Start using styled-components
 - [ ] Create Channel Design & UI
 - [ ] ESLint
+## October 2020:
