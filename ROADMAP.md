@@ -8,3 +8,4 @@
 - [ ] Create Channel Design & UI
 - [ ] ESLint
 ## October 2020:
+- [ ] Loading animation
