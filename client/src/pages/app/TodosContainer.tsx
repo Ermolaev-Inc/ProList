@@ -24,16 +24,16 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({ projectName }) 
     }
   }, [request, authInfo, projectName])
 
-  const clearTodosSection = () => {
+  const clearTodosSection = useCallback(() => {
     if (projectName === "") {
       setTodos([]);
     }
-  }
+  }, [projectName]) 
 
   useEffect(() => {
     getProjectTodos();
     clearTodosSection();
-  }, [getProjectTodos])
+  }, [getProjectTodos, clearTodosSection])
   
   return(
     <div className={themeContext.theme === Theme.LIGHT ? s.light : s.dark}>

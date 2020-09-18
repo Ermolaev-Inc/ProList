@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import s from "./sass/ChannelsContainer.module.sass";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
-import { useHttp } from "../../hooks/http.hook";
 import { SettingsButton } from "../../components/SettingsButton/SettingsButton";
 import { IPropsChannelsContainer } from "../../interfaces";
 
 export const ChannelsContainer = (props: IPropsChannelsContainer) => {
-  const request: Function = useHttp();
   const themeContext = useContext(ThemeContext);
 
   return(
