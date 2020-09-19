@@ -25,13 +25,13 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCur
     }
   }, [authInfo, request])
 
-  const createProject = useCallback(async (event: any): Promise<void> => {
+  const createProject = async (event: any): Promise<void> => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
       await request("/api/personal/create/project", "POST", {authInfo, projectName});
       setProjectCreating(false);
     }
-  }, [authInfo ,request])
+  }
 
   useEffect(() => {
     getUserProjects();
