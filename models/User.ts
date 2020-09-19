@@ -23,6 +23,9 @@ const UserSchema = new Schema({
         timeInProgress: { type: Number }
       }]
     }
+  ],
+  channels: [
+    { type: String }
   ]
 })
 
