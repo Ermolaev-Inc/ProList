@@ -9,6 +9,7 @@ export interface IUser {
   login: string;
   password: string;
   personalChannel: IPersonalChannel;
+  channels: String[];
   save: Function
 }
 export interface IPersonalChannel {
