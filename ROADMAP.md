@@ -6,6 +6,6 @@
 - [x] Code refactoring (pages)
 - [x] Start using styled-components
 - [ ] Create Channel Design & UI
-- [ ] ESLint
+- [ ] Refactoring routes
 ## October 2020:
 - [ ] Loading animation
