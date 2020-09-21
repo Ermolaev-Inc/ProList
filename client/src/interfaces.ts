@@ -31,13 +31,7 @@ export interface IPropsChangeThemeButton {
   changeTheme: any;
   theme: Theme;
 }
-export interface IPropsAppContainer {
-  showSettings: any;
-}
-export interface IPropsChannelsContainer extends IPropsAppContainer {
-}
-export interface IPropsSettingsButton extends IPropsChannelsContainer {
-}
+
 export interface IPropsSettingsContainer {
   closeSettings: any;
 }
@@ -55,6 +49,19 @@ export interface ITodo {
   timeInProgress: number;
 }
 
+export interface IAppContainerProps {
+  showSettings(): void;
+}
+
+export interface IChannelsContainerProps extends IAppContainerProps {
+  changeCurrentChannel(channelName: string): void;
+}
+
+export interface IChannelProps {
+  channelName: string;
+  changeCurrentChannel(channelName: string): void;
+}
+
 export interface IProjectsContainerProps {
   changeCurrentProject(projectName: string): void;
 }
@@ -66,3 +73,4 @@ export interface IProjectProps extends IProjectsContainerProps {
 export interface ITodosContainerProps {
   projectName: string;
 }
+

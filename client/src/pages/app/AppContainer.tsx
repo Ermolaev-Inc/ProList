@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import s from "./sass/AppContainer.module.sass";
-import { IPropsAppContainer } from "../../interfaces";
+import { IAppContainerProps } from "../../interfaces";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Theme } from "../../context/ThemeContext";
 import { ProjectsContainer } from "./ProjectsContainer";
 import { TodosContainer } from "./TodosContainer";
 import { ChannelsContainer } from "./ChannelsContainer";
 
-export const AppContainer = (props: IPropsAppContainer) => {
-
+export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => {
   const [currentChannel, setCurrentChannel]: [string, Function] = useState("personalChannel");
   const changeCurrentChannel = () => {
     // TODO
@@ -23,7 +22,7 @@ export const AppContainer = (props: IPropsAppContainer) => {
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? s.wrapper : s.wrapperDark}>
-          <ChannelsContainer showSettings={props.showSettings}/>
+          <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings}/>
           <ProjectsContainer changeCurrentProject={changeCurrentProject}/>
           <TodosContainer projectName={currentProject}/>
         </div>
