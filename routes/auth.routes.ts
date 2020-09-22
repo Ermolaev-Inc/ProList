@@ -21,7 +21,7 @@ router.post(
           message: "Min - 6 characters"
         })
       }
-      const {login, password} = req.body;
+      const { login, password } = req.body;
       const candidate = await User.findOne({ login });
       if (candidate) {
         return res.status(400).json({ message: "This username is already registered" });
@@ -51,7 +51,7 @@ router.post(
           message: "Incorrect"
         })
       }
-      const {login, password} = req.body;
+      const { login, password } = req.body;
       const user = await User.findOne({ login });
       if (!user) {
         return res.status(400).json({ message: "Incorrect login" });

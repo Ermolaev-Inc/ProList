@@ -6,7 +6,10 @@ import { ThemeContext, Theme } from "../../context/ThemeContext";
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
 
-export const TodosContainer: React.FC<ITodosContainerProps> = ({ projectName }) => {
+export const TodosContainer: React.FC<ITodosContainerProps> = ({ 
+  channelName,
+  projectName
+}) => {
   const request = useHttp();
   const authInfo: IAuthContext = useContext(AuthContext);
   const themeContext = useContext(ThemeContext);
@@ -15,7 +18,7 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({ projectName }) 
 
   const getProjectTodos = useCallback(async (): Promise<void> => {
     try {
-      const fetchedData = await request(`api/personal/todos/${projectName}`, "GET", null, {	
+      const fetchedData = await request(`api/data/${channelName}/${projectName}`, "GET", null, {	
         Authorization: `Bearer ${authInfo.token}`	
       });	
       setTodos(fetchedData);

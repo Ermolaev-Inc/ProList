@@ -10,24 +10,7 @@ interface IUserData {
 }
 
 router.post(
-  "/project",
-  async (req: any, res: any) => {
-    try {
-      const userData: IUserData = req.body;
-      const userId = userData.authInfo.userId;
-      const user = await User.update({ _id: userId }, { $push: { personalChannel: { projectName : userData.projectName } } }, { upsert: false });
-      if (!user) {
-        return res.status(400).json({ message: "This user does not exis" });
-      }
-      res.status(201).json({ message: "Success" });
-    } catch (error) {
-      res.status(500).json({ message: "Something is wrong :(" });
-    }
-  }
-)
-
-router.post(
-  "/create",
+  "/channel",
   async (req: any, res: any) => {
     try {
       const { channelName, password, userId } = req.body;
@@ -44,6 +27,23 @@ router.post(
       await User.updateOne({ _id: userId }, { $push: { channels: channelName } }, { upsert: false });
 
       res.status(201).json({ message: "Success" })
+    } catch (error) {
+      res.status(500).json({ message: "Something is wrong :(" });
+    }
+  }
+)
+
+router.post(
+  "/project",
+  async (req: any, res: any) => {
+    try {
+      const userData: IUserData = req.body;
+      const userId = userData.authInfo.userId;
+      const user = await User.update({ _id: userId }, { $push: { personalChannel: { projectName : userData.projectName } } }, { upsert: false });
+      if (!user) {
+        return res.status(400).json({ message: "This user does not exis" });
+      }
+      res.status(201).json({ message: "Success" });
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
     }

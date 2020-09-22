@@ -8,7 +8,7 @@ import { TodosContainer } from "./TodosContainer";
 import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => {
-  const [currentChannel, setCurrentChannel]: [string, Function] = useState("personalChannel");
+  const [currentChannel, setCurrentChannel]: [string, Function] = useState("Personal");
   const changeCurrentChannel = () => {
     // TODO
   }
@@ -23,8 +23,8 @@ export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => 
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? s.wrapper : s.wrapperDark}>
           <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings}/>
-          <ProjectsContainer changeCurrentProject={changeCurrentProject}/>
-          <TodosContainer projectName={currentProject}/>
+          <ProjectsContainer channelName={currentChannel} changeCurrentProject={changeCurrentProject}/>
+          <TodosContainer channelName={currentChannel} projectName={currentProject}/>
         </div>
       )}
     </ThemeContext.Consumer>

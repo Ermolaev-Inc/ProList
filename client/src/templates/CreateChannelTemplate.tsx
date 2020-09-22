@@ -23,7 +23,7 @@ export const CreateChannelTemplate = () => {
 
   const createChannelHandler = () => {
     try {
-      const data = request("/api/channels/create", "POST", {channelName, password, userId});
+      const data = request("/api/create/channel", "POST", {channelName, password, userId});
       // TODO: error/success UI handler 
     } catch (error) {
       console.log("Error", error);

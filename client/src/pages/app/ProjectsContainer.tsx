@@ -8,7 +8,10 @@ import { AuthContext } from "../../context/AuthContext";
 import { CreateProjectTemplate } from "../../templates/CreateProjectTemplate";
 import { Theme, ThemeContext } from "../../context/ThemeContext";
 
-export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCurrentProject }) => {
+export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ 
+  channelName,
+  changeCurrentProject
+ }) => {
   const request = useHttp();
   const themeContext = useContext(ThemeContext);
   const authInfo: IAuthContext = useContext(AuthContext);
@@ -18,7 +21,7 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCur
   
   const getUserProjects = useCallback(async (): Promise<void> => {
     try {
-      const fetchedData: IUserData = await request("/api/personal/data", "GET", null, {
+      const fetchedData: IUserData = await request(`/api/data/${channelName}`, "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
       })
       setProjects(fetchedData.personalChannel);
@@ -30,7 +33,7 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCur
   const createProject = useCallback(async (event: any): Promise<void> => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
-      await request("/api/personal/create/project", "POST", {authInfo, projectName});
+      await request("/api/create/project", "POST", {authInfo, projectName});
       setProjectCreating(false);
     }
   }, [request, authInfo])

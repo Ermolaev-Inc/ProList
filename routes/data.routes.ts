@@ -40,4 +40,16 @@ router.get(
   }
 )
 
+router.get(
+  "/:channelName/:projectName",
+  auth,
+  async (req: any, res: any) => {
+    try {
+      // TODO
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+)
+
 module.exports = router;

@@ -63,14 +63,17 @@ export interface IChannelProps {
 }
 
 export interface IProjectsContainerProps {
+  channelName: string;
   changeCurrentProject(projectName: string): void;
 }
 
-export interface IProjectProps extends IProjectsContainerProps {
+export interface IProjectProps {
   projectName: string;
+  changeCurrentProject(projectName: string): void;
 }
 
 export interface ITodosContainerProps {
+  channelName: string;
   projectName: string;
 }
 
