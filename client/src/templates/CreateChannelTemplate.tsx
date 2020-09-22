@@ -3,9 +3,12 @@ import s from "./CreateChannelTemplate.module.sass";
 import { ThemeContext, Theme } from "../context/ThemeContext";
 import { NeonButton } from "../components/NeonButton/NeonButton";
 import { useHttp } from "../hooks/http.hook";
+import { IAuthContext } from "../interfaces";
+import { AuthContext } from "../context/AuthContext";
 
 export const CreateChannelTemplate = () => {
   const request: Function = useHttp();
+  const {userId} = useContext(AuthContext);
   const themeContext = useContext(ThemeContext);
 
   const [channelName, setChannelName]: [string, Function] = useState("");
@@ -20,7 +23,7 @@ export const CreateChannelTemplate = () => {
 
   const createChannelHandler = () => {
     try {
-      const data = request("/api/channels/create", "POST", {channelName, password});
+      const data = request("/api/channels/create", "POST", {channelName, password, userId});
       // TODO: error/success UI handler 
     } catch (error) {
       console.log("Error", error);

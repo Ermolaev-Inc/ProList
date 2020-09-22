@@ -15,7 +15,7 @@ router.post(
     try {
       const userData: IUserData = req.body;
       const userId = userData.authInfo.userId;
-      const user = await User.update({ _id: userId }, {$push: {personalChannel: {projectName:userData.projectName}}}, {upsert: false});
+      const user = await User.update({ _id: userId }, { $push: { personalChannel: { projectName : userData.projectName } } }, { upsert: false });
       if (!user) {
         return res.status(400).json({ message: "This user does not exis" });
       }
@@ -30,10 +30,19 @@ router.post(
   "/create",
   async (req: any, res: any) => {
     try {
-      const { channelName, password } = req.body;
+      const { channelName, password, userId } = req.body;
+
+      const user = await User.findOne({ _id: userId });
+      if (!user) {
+        return res.status(401).json({ message: "You are not auth" });
+      }
+
       const hashedPassword = await bcrypt.hash(password, 12); 
       const newChannel = new Channel({channelName, password: hashedPassword});
       await newChannel.save();
+
+      await User.updateOne({ _id: userId }, { $push: { channels: channelName } }, { upsert: false });
+
       res.status(201).json({ message: "Success" })
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
