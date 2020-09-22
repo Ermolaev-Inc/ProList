@@ -6,9 +6,11 @@ import { IUserData, IAuthContext, IProjectsContainerProps, IProject } from "../.
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
 import { CreateProjectTemplate } from "../../templates/CreateProjectTemplate";
+import { Theme, ThemeContext } from "../../context/ThemeContext";
 
 export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCurrentProject }) => {
   const request = useHttp();
+  const themeContext = useContext(ThemeContext);
   const authInfo: IAuthContext = useContext(AuthContext);
   
   const [projects, setProjects]: [any, Function] = useState([]);
@@ -47,7 +49,7 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({ changeCur
           </ul>
         </div>
         <div className={s.addButtonWrapper}>
-          <AddButton onClick={ () => { setProjectCreating(true) } } className={s.addButton} />
+          <AddButton onClick={ () => { setProjectCreating(true) } } className={s.addButton} color={themeContext.theme === Theme.LIGHT ? "#000000" : "#ffffff"}/>
         </div>
       </div>
     </div>
