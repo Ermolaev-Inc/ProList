@@ -22,8 +22,8 @@ export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => 
     <ThemeContext.Consumer>
       {({theme, changeTheme}) => (
         <div className={theme === Theme.LIGHT ? s.wrapper : s.wrapperDark}>
-          <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings}/>
-          <ProjectsContainer channelName={currentChannel} changeCurrentProject={changeCurrentProject}/>
+          <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings} />
+          <ProjectsContainer changeCurrentProject={changeCurrentProject} channelName={currentChannel} />
           <TodosContainer channelName={currentChannel} projectName={currentProject}/>
         </div>
       )}
