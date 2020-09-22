@@ -32,8 +32,10 @@ export const CreateChannelTemplate = () => {
 
   return(
     <div className={themeContext.theme === Theme.LIGHT ? s.light : s.dark}>
-      <input type="text" className={s.channelName} placeholder="Channel name" onChange={channelNameInputHandler}/>
-      <input type="password" className={s.channelName} placeholder="Password" onChange={passwordInputHandler}/>
+      <form>
+        <input type="text" className={s.channelName} placeholder="Channel name" onChange={channelNameInputHandler}/>
+        <input type="password" className={s.channelName} placeholder="Password" onChange={passwordInputHandler}/>
+      </form>
       <NeonButton title="Create" className={s.createButton} onClick={createChannelHandler}/>
     </div>
   )
