@@ -4,11 +4,6 @@ import { Channel } from "../models/Channel";
 import bcrypt from "bcryptjs";
 const router = Router();
 
-interface IUserData {
-  authInfo: any;
-  projectName: string;
-}
-
 router.post(
   "/channel",
   async (req: any, res: any) => {
@@ -37,13 +32,16 @@ router.post(
   "/project",
   async (req: any, res: any) => {
     try {
-      const userData: IUserData = req.body;
-      const userId = userData.authInfo.userId;
-      const user = await User.update({ _id: userId }, { $push: { personalChannel: { projectName : userData.projectName } } }, { upsert: false });
-      if (!user) {
-        return res.status(400).json({ message: "This user does not exis" });
+      const { channelName, projectName } = req.body;
+
+      const channel = await Channel.findOne({ channelName });
+      if (channel) {
+        await Channel.updateOne({ channelName }, { $push: { projects: { projectName } } }, { upsert: false });
+        res.status(201).json({ message: "Success" });
+      } else {
+        res.status(500).json({ message: "Channel does not exist" });
       }
-      res.status(201).json({ message: "Success" });
+
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
     }

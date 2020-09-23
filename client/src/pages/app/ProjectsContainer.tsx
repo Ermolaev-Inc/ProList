@@ -34,10 +34,10 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({
   const createProject = useCallback(async (event: any): Promise<void> => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
-      await request("/api/create/project", "POST", { authInfo, projectName });
+      await request("/api/create/project", "POST", { channelName, projectName });
       setProjectCreating(false);
     }
-  }, [request, authInfo])
+  }, [request, authInfo, channelName])
 
   useEffect(() => {
     getUserProjects();
