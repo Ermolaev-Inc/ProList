@@ -9,8 +9,8 @@ import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => {
   const [currentChannel, setCurrentChannel]: [string, Function] = useState("Personal");
-  const changeCurrentChannel = () => {
-    // TODO
+  const changeCurrentChannel = (channelName: string): void => {
+    setCurrentChannel(channelName);
   }
 
   const [currentProject, setCurrentProject]: [string, Function] = useState("");

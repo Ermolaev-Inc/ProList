@@ -7,6 +7,6 @@ export const Channel: React.FC<IChannelProps> = ({
   changeCurrentChannel
 }) => {
   return(
-    <div className={s.default} />
+    <div className={s.default} onClick={() => { changeCurrentChannel(channelName); console.log("Changed") }} />
   )
 }

@@ -21,26 +21,27 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({
   
   const getUserProjects = useCallback(async (): Promise<void> => {
     try {
+      console.log(channelName);
       const fetchedData: IUserData = await request(`/api/data/${channelName}`, "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
       })
-      setProjects(fetchedData.personalChannel);
+      setProjects(fetchedData);
     } catch (error) {
       console.log("Error", error);
     }
-  }, [authInfo, request])
+  }, [authInfo, request, channelName])
 
   const createProject = useCallback(async (event: any): Promise<void> => {
     if (event.key === "Enter") {
       const projectName: string = event.target.value;
-      await request("/api/create/project", "POST", {authInfo, projectName});
+      await request("/api/create/project", "POST", { authInfo, projectName });
       setProjectCreating(false);
     }
   }, [request, authInfo])
 
   useEffect(() => {
     getUserProjects();
-  }, [isProjectCreating])
+  }, [isProjectCreating, channelName])
 
   return(
     <div className={s.projectsWrapper}>
