@@ -9,3 +9,4 @@
 - [x] Refactoring routes
 ## October 2020:
 - [ ] Loading animation
+- [ ] Setup ESLint
