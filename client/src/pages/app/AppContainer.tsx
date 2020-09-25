@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import s from "./sass/AppContainer.module.sass";
 import { IAppContainerProps } from "../../interfaces";
-import { ThemeContext } from "../../context/ThemeContext";
-import { Theme } from "../../context/ThemeContext";
+import { ThemeContext, Theme } from "../../context/ThemeContext";
+import { ChannelsContainer } from "./ChannelsContainer";
 import { ProjectsContainer } from "./ProjectsContainer";
 import { TodosContainer } from "./TodosContainer";
-import { ChannelsContainer } from "./ChannelsContainer";
 
 export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => {
+  const themeContext = useContext(ThemeContext);
+
   const [currentChannel, setCurrentChannel]: [string, Function] = useState("Personal");
   const changeCurrentChannel = (channelName: string): void => {
     setCurrentChannel(channelName);
@@ -19,14 +20,10 @@ export const AppContainer: React.FC<IAppContainerProps> = ({ showSettings }) => 
   }
   
   return(
-    <ThemeContext.Consumer>
-      {({theme, changeTheme}) => (
-        <div className={theme === Theme.LIGHT ? s.wrapper : s.wrapperDark}>
-          <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings} />
-          <ProjectsContainer changeCurrentProject={changeCurrentProject} channelName={currentChannel} />
-          <TodosContainer channelName={currentChannel} projectName={currentProject}/>
-        </div>
-      )}
-    </ThemeContext.Consumer>
+    <div className={themeContext.theme === Theme.LIGHT ? s.wrapper : s.wrapperDark}>
+      <ChannelsContainer changeCurrentChannel={changeCurrentChannel} showSettings={showSettings} />
+      <ProjectsContainer changeCurrentProject={changeCurrentProject} channelName={currentChannel} />
+      <TodosContainer channelName={currentChannel} projectName={currentProject}/>
+    </div>
   )
 }
