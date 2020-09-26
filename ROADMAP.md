@@ -5,7 +5,7 @@
 ## September 2020:
 - [x] Code refactoring (pages)
 - [x] Start using styled-components
-- [ ] Create Channel Design & UI
+- [x] Create Channel Design & UI
 - [x] Refactoring routes
 ## October 2020:
 - [ ] Loading animation
