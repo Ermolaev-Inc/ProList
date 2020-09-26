@@ -28,7 +28,7 @@ export interface IProject {
 }
 
 export interface ITodo  {
-  name: string;
+  todoName: string;
   description: string;
   status: string;
   timeInProgress: number;

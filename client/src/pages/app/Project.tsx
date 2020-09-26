@@ -10,7 +10,7 @@ export const Project: React.FC<IProjectProps> = ({
   const selectProject = (): void => {
     // TODO: Refactor
     setSelected(!isSelected);
-    if (!isSelected) {
+    if (!isSelected) {      
       changeCurrentProject(projectName);
     } else {
       changeCurrentProject("");

@@ -4,7 +4,7 @@ import s from "./sass/Todos.module.sass";
 import { Status } from "../../statuses";
 
 export const Todos: React.FC<ITodo> = ({
-  name,
+  todoName,
   description,
   status,
   timeInProgress
@@ -27,7 +27,7 @@ export const Todos: React.FC<ITodo> = ({
   return(
     <li className={s.todo}>
       <div className={identifyStatus()}></div>
-      <span className={s.name}>{name}</span>
+      <span className={s.name}>{todoName}</span>
     </li>
   )
 }

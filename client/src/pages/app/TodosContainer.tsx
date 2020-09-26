@@ -18,9 +18,11 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({
 
   const getProjectTodos = useCallback(async (): Promise<void> => {
     try {
+      if (!projectName) return;
+
       const fetchedData = await request(`api/data/${channelName}/${projectName}`, "GET", null, {	
         Authorization: `Bearer ${authInfo.token}`	
-      });	
+      })
       setTodos(fetchedData);
     } catch (error) {
       console.log("Error", error);
@@ -28,15 +30,13 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({
   }, [request, authInfo, projectName])
 
   const clearTodosSection = useCallback(() => {
-    if (projectName === "") {
-      setTodos([]);
-    }
+    setTodos([]);
   }, [projectName]) 
 
   useEffect(() => {
     getProjectTodos();
     clearTodosSection();
-  }, [getProjectTodos, clearTodosSection])
+  }, [getProjectTodos, clearTodosSection, projectName])
   
   return(
     <div className={themeContext.theme === Theme.LIGHT ? s.light : s.dark}>
@@ -45,7 +45,7 @@ export const TodosContainer: React.FC<ITodosContainerProps> = ({
           <div className={s.title}>{projectName}</div>
           <div className={s.todos}>
             <ul>
-              { todos.map((todo: ITodo, index: number) => <Todos name={todo.name} description={todo.description} status={todo.status} timeInProgress={todo.timeInProgress} key={index} />) }
+              { todos.map((todo: ITodo, index: number) => <Todos todoName={todo.todoName} description={todo.description} status={todo.status} timeInProgress={todo.timeInProgress} key={index} />) }
             </ul>
           </div>
         </div>
