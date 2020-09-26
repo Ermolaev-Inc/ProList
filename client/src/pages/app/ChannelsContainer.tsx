@@ -3,7 +3,6 @@ import s from "./sass/ChannelsContainer.module.sass";
 import { ThemeContext, Theme } from "../../context/ThemeContext";
 import { SettingsButton } from "../../components/SettingsButton/SettingsButton";
 import { IChannelsContainerProps } from "../../interfaces";
-import { request } from "express";
 import { useHttp } from "../../hooks/http.hook";
 import { AuthContext } from "../../context/AuthContext";
 import { Channel } from "./Channel";
@@ -35,7 +34,9 @@ export const ChannelsContainer: React.FC<IChannelsContainerProps> = ({
 
   return(
     <div className={themeContext.theme === Theme.LIGHT ? s.channelsWrapper : s.channelsWrapperDark}>
-      { channels.map((channelName: string, index: number) => <Channel channelName={channelName} key={index} changeCurrentChannel={changeCurrentChannel} />)}
+      <div className={s.channelForm}>
+        { channels.map((channelName: string, index: number) => <Channel channelName={channelName} key={index} changeCurrentChannel={changeCurrentChannel} />)}
+      </div>
       <SettingsButton onClick={showSettings} color={themeContext.theme === Theme.LIGHT ? "#000000" : "#ffffff"}/>
     </div>
   )

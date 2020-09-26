@@ -21,7 +21,6 @@ export const ProjectsContainer: React.FC<IProjectsContainerProps> = ({
   
   const getUserProjects = useCallback(async (): Promise<void> => {
     try {
-      console.log(channelName);
       const fetchedData: IUserData = await request(`/api/data/${channelName}`, "GET", null, {
         Authorization: `Bearer ${authInfo.token}`
       })

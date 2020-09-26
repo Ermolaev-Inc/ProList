@@ -1,17 +1,35 @@
 @mixin channelsWrapper($color)
   display: grid
-  align-items: center
+  grid-template-rows: 95% 5%
   justify-items: center
-  width: 6.07638889%
   border-right: 0.5px solid $color
   height: 100vh
 .default
-  margin-top: 10px
+  margin-top: 5px
   width: 50px
   height: 50px
   border-radius: 100%
   background: linear-gradient(131.16deg, #FF8080 -17.4%, #F8CDFF 124.74%)
+  cursor: pointer
+.channelForm
+  .channel
+    display: grid
+    margin-bottom: 20px
+  .badgeForm
+    margin-left: 55px
+    margin-top: 12px
+    position: absolute
+    border-radius: 4px
+    padding: 10px
 .channelsWrapper
   @include channelsWrapper($color: #C4C4C4)
+  .badgeForm
+    background-color:  #000000
+    .badgeName
+      color: #ffffff
 .channelsWrapperDark
   @include channelsWrapper($color: #545454)
+  .badgeForm
+    background-color:  #ffffff
+    .badgeName
+      color: #000000
