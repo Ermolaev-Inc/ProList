@@ -15,7 +15,19 @@ export interface IUser {
 export interface IPersonalChannel {
   [projectName: string]: Array<IProject>;
 }
+
+export interface IChannel extends Document {
+  channelName: string;
+  readonly password: string;
+  projects: IProject[]
+}
+
 export interface IProject {
+  projectName: string;
+  projectContent: ITodo[]
+}
+
+export interface ITodo  {
   name: string;
   description: string;
   status: string;

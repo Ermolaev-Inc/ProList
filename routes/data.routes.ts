@@ -1,6 +1,6 @@
 const Router = require("express");
 const auth = require("../middleware/auth.middleware");
-import { IUser } from "../interfaces";
+import { IChannel, IProject, ITodo } from "../interfaces";
 import { Channel } from "../models/Channel";
 import { User } from "../models/User";
 
@@ -47,7 +47,16 @@ router.get(
   auth,
   async (req: any, res: any) => {
     try {
-      // TODO
+      const channelName = req.params.channelName;
+      const projectName = req.params.projectName;
+
+      const channel: IChannel = await Channel.findOne({ channelName });
+      if (!channel) return res.json({ message: "This channel does not exist" }).status(502);
+
+      const project: IProject = channel.projects.filter((element: IProject) => element.projectName === projectName)[0];
+      const todos: ITodo[] = project.projectContent;
+      
+      res.json(todos).status(200);
     } catch (error) {
       console.log("Error", error);
     }
