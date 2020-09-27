@@ -5,7 +5,7 @@ interface IUserData {
   token: string;
   userId: string;
 }
-export interface IUser {
+export interface IUser extends Document {
   login: string;
   password: string;
   personalChannel: IPersonalChannel;

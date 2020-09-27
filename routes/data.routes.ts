@@ -1,8 +1,8 @@
-const Router = require("express");
-const auth = require("../middleware/auth.middleware");
-import { IChannel, IProject, ITodo } from "../interfaces";
 import { Channel } from "../models/Channel";
 import { User } from "../models/User";
+import { IChannel, IProject, ITodo, IUser } from "../interfaces";
+const Router = require("express");
+const auth = require("../middleware/auth.middleware");
 
 const router = Router();
 
@@ -11,10 +11,14 @@ router.get(
   auth,
   async (req: any, res: any) => {
     try {
-      const user = await User.findOne({ _id: req.user.userId });
+      const userId: string = req.user.userId;
+
+      const user: IUser = await User.findOne({ _id: userId });
+
       if (user) {
         res.json(user.channels).status(200);
       }
+
       res.status(502);
     } catch (error) {
       console.log("Error", error);
@@ -27,13 +31,13 @@ router.get(
   auth,
   async (req: any, res: any) => {
     try {      
-      const channelName = req.params.channelName;
-      //const user = await User.findOne({ _id: req.user.userId });
+      const channelName: string = req.params.channelName;
       
       if (channelName === "Personal") {
         // TODO
       } else {
-        const channel = await Channel.findOne({ channelName });
+        const channel: IChannel = await Channel.findOne({ channelName });
+
         res.json(channel.projects).status(200);
       }
     } catch (error) {
@@ -47,8 +51,8 @@ router.get(
   auth,
   async (req: any, res: any) => {
     try {
-      const channelName = req.params.channelName;
-      const projectName = req.params.projectName;
+      const channelName: string = req.params.channelName;
+      const projectName: string = req.params.projectName;
 
       const channel: IChannel = await Channel.findOne({ channelName });
       if (!channel) return res.json({ message: "This channel does not exist" }).status(502);
