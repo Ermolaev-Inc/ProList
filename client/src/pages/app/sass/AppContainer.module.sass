@@ -28,27 +28,26 @@ input
 .wrapper
   display: grid
   grid-template-columns: 7% 25% 68%
+  background-color: #ffffff
   .projectsWrapper
-    overflow: scroll
     border-right: 0.5px solid #C4C4C4
-    height: 100vh
     .projectsContainer
-      height: 100vh
       display: grid
-      margin-left: 21px
-      margin-top: 10px
+      grid-template-rows: 95% 5%
+      height: 100vh
       .projects
+        overflow: scroll
+        margin-top: 5px
+        margin-left: 15px
         @include projectsText
         color: #363636
         .project
           margin-bottom: 7px
           cursor: pointer
       .addButtonWrapper
-        display: flex
-        justify-content: center
+        justify-self: center
         .addButton
           cursor: pointer
-          display: block
   .selectedProject
     margin-left: 5px
   .notSelectedForm
@@ -74,26 +73,25 @@ input
   grid-template-columns: 7% 25% 68%
   background-color: #000000
   .projectsWrapper
-    overflow: scroll
     border-right: 0.5px solid #545454
-    height: 100vh
     .projectsContainer
-      height: 100vh
       display: grid
-      margin-left: 21px
-      margin-top: 10px
+      grid-template-rows: 95% 5%
+      height: 100vh
       .projects
+        overflow: scroll
+        margin-top: 5px
+        margin-left: 15px
         @include projectsText
         color: #ffffff
         cursor: pointer
         .project
           margin-bottom: 7px
+          cursor: pointer
       .addButtonWrapper
-        display: flex
-        justify-content: center
+        justify-self: center
         .addButton
           cursor: pointer
-          display: block
   .selectedProject
     margin-left: 5px
   .notSelectedForm
