@@ -2,6 +2,7 @@ import { Router } from "express";
 import { User } from "../models/User";
 import { Channel } from "../models/Channel";
 import bcrypt from "bcryptjs";
+
 const router = Router();
 
 router.post(
@@ -35,13 +36,13 @@ router.post(
       const { channelName, projectName } = req.body;
 
       const channel = await Channel.findOne({ channelName });
-      if (channel) {
-        await Channel.updateOne({ channelName }, { $push: { projects: { projectName } } }, { upsert: false });
-        res.status(201).json({ message: "Success" });
-      } else {
-        res.status(500).json({ message: "Channel does not exist" });
+      if (!channel) {
+        return res.status(500).json({ message: "Channel does not exist" });
       }
 
+      await Channel.updateOne({ channelName }, { $push: { projects: { projectName } } }, { upsert: false });
+
+      res.status(201).json({ message: "Success" });
     } catch (error) {
       res.status(500).json({ message: "Something is wrong :(" });
     }
