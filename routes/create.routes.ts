@@ -12,9 +12,7 @@ router.post(
       const { channelName, password, userId } = req.body;
 
       const user = await User.findOne({ _id: userId });
-      if (!user) {
-        return res.status(401).json({ message: "You are not auth" });
-      }
+      if (!user) return res.status(401).json({ message: "You are not auth" });
 
       const hashedPassword = await bcrypt.hash(password, 12); 
       const newChannel = new Channel({channelName, password: hashedPassword});
@@ -36,9 +34,7 @@ router.post(
       const { channelName, projectName } = req.body;
 
       const channel = await Channel.findOne({ channelName });
-      if (!channel) {
-        return res.status(500).json({ message: "Channel does not exist" });
-      }
+      if (!channel) return res.status(500).json({ message: "Channel does not exist" });
 
       await Channel.updateOne({ channelName }, { $push: { projects: { projectName } } }, { upsert: false });
 

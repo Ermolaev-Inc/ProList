@@ -14,7 +14,6 @@ router.get(
       const userId: string = req.user.userId;
 
       const user: IUser = await User.findOne({ _id: userId });
-
       if (user) {
         res.json(user.channels).status(200);
       }
