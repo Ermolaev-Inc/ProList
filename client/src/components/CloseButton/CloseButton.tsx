@@ -1,7 +1,6 @@
 import React from "react";
 import { CloseButtonProps } from "./interfaces";
 
-
 export const CloseButton: React.FC<CloseButtonProps> = ({
   color,
   onClick,
