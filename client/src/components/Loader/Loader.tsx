@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./styles.module.css";
+import s from "./styles.module.sass";
 
 export const Loader: React.FC = () => {
   return(
