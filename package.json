@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run tsc\" \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
