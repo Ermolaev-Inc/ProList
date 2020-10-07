@@ -9,5 +9,5 @@
 - [x] Refactoring routes
 ## October 2020:
 - [ ] Update personal channel logic
-- [ ] Loading animation
+- [x] Loading animation
 - [ ] Setup ESLint
