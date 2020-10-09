@@ -1,3 +1,5 @@
+import { Status } from "./statuses";
+
 export interface ILocalStorageData {
   userData: IUserData
 }
@@ -30,6 +32,6 @@ export interface IProject {
 export interface ITodo  {
   todoName: string;
   description: string;
-  status: string;
+  status: Status;
   timeInProgress: number;
 }

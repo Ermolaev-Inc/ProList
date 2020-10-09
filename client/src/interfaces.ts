@@ -1,5 +1,6 @@
 import { token, userId, login } from "./types";
 import { Theme } from "./context/ThemeContext";
+import { Status } from "../../statuses";
 
 export interface IDataRegister { 
   message: string;
@@ -45,7 +46,7 @@ export interface IProject {
 export interface ITodo {
   todoName: string;
   description: string;
-  status: string;
+  status: Status;
   timeInProgress: number;
 }
 
