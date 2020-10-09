@@ -8,6 +8,6 @@
 - [x] Create Channel Design & UI
 - [x] Refactoring routes
 ## October 2020:
-- [ ] Update personal channel logic
+- [x] Update personal channel logic
 - [x] Loading animation
 - [ ] Setup ESLint

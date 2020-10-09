@@ -35,7 +35,8 @@ export const ChannelsContainer: React.FC<IChannelsContainerProps> = ({
   return(
     <div className={themeContext.theme === Theme.LIGHT ? s.channelsWrapper : s.channelsWrapperDark}>
       <div className={s.channelForm}>
-        { channels.map((channelName: string, index: number) => <Channel channelName={channelName} key={index} changeCurrentChannel={changeCurrentChannel} />)}
+        <Channel channelName="Personal" changeCurrentChannel={changeCurrentChannel} />
+        { channels.map((channelName: string, index: number) => <Channel channelName={channelName} changeCurrentChannel={changeCurrentChannel} key={index}  />)}
       </div>
       <SettingsButton onClick={showSettings} color={themeContext.theme === Theme.LIGHT ? "#000000" : "#ffffff"}/>
     </div>
