@@ -16,12 +16,14 @@ const UserSchema = new Schema({
   personalChannel: [
     {
       projectName: { type: String },
-      projectContent: [{
-        name: { type: String },
-        description: { type: String },
-        status: { type: String },
-        timeInProgress: { type: Number }
-      }]
+      projectContent: [
+        {
+          todoName: { type: String },
+          description: { type: String },
+          status: { type: String },
+          timeInProgress: { type: Number }
+        }
+      ]
     }
   ],
   channels: [
