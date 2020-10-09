@@ -11,3 +11,4 @@
 - [x] Update personal channel logic
 - [x] Loading animation
 - [ ] Setup ESLint
+- [ ] Global Backend Refactoring 
